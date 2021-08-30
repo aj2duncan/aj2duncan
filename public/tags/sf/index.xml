@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sf on aj2duncan.com</title>
+    <link>/tags/sf/</link>
+    <description>Recent content in sf on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 21 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/sf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Postcode Polygons on a Leaflet Map - Updated</title>
+      <link>/blog/postcode-polygons-on-a-leaflet-map-updated/</link>
+      <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/postcode-polygons-on-a-leaflet-map-updated/</guid>
+      <description>Following an earlier post where I plotted postcode polygons on a Leaflet map I wanted to update it to use the sf package which is now my default package for working with spatial data. Note that I’ve also started using &amp;lt;- again after being a longtime user of =.
+Sorting the DataFirst we’ll load the packages we need.
+library(sf)library(leaflet)library(tidyverse)Next we read in the data.</description>
+    </item>
+    
+  </channel>
+</rss>

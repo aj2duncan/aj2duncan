@@ -6,11 +6,7 @@
     <description>Recent content in Shiny on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/shiny/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 06 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shiny/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Leaflet Draw, Exporting Polygons and the Holepunch Package</title>
       <link>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</link>

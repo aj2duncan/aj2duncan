@@ -6,18 +6,14 @@
     <description>Recent content in Blogs on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 21 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Postcode Polygons on a Leaflet Map - Updated</title>
       <link>/blog/postcode-polygons-on-a-leaflet-map-updated/</link>
       <pubDate>Sat, 21 Nov 2020 00:00:00 +0000</pubDate>
       
       <guid>/blog/postcode-polygons-on-a-leaflet-map-updated/</guid>
-      <description>Following an earlier [post] where I plotted postcode polygons on a Leaflet map I wanted to update it to use the sf package which is now my default package for working with spatial data. Note that I’ve also started using &amp;lt;- again after being a longtime user of =.
+      <description>Following an earlier post where I plotted postcode polygons on a Leaflet map I wanted to update it to use the sf package which is now my default package for working with spatial data. Note that I’ve also started using &amp;lt;- again after being a longtime user of =.
 Sorting the DataFirst we’ll load the packages we need.
 library(sf)library(leaflet)library(tidyverse)Next we read in the data.</description>
     </item>
@@ -326,7 +322,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 13 Aug 2014 00:00:00 +0000</pubDate>
       
       <guid>/blog/first-female-winner-fields-medal/</guid>
-      <description></description>
+      <description>I was very happy to hear about this.</description>
     </item>
     
     <item>
@@ -335,7 +331,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Mon, 03 Feb 2014 00:00:00 +0000</pubDate>
       
       <guid>/blog/an-interesting-article-and-paper/</guid>
-      <description></description>
+      <description>I was having a wee browse of the old interweb and found this article and this paper. Might be of interest.</description>
     </item>
     
     <item>
@@ -344,7 +340,11 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 06 Nov 2013 00:00:00 +0000</pubDate>
       
       <guid>/blog/completing-the-square/</guid>
-      <description></description>
+      <description>I was covering &#34;completing the square&#34; in class today and one of the examples caused a little difficulty. I thought I would use it as a chance to test a new plug-in for this site.
+The question involved was: Use completing the square to solve \( 2x^2 = 3x+6 \).
+We begin by rearranging and setting equal to zero
+$$ 2x^2-3x-6=0 $$
+and then remove the common factor of 2. I tend to remove it just from the first 2 terms to avoid fractions in the third term - this doesn&#39;t actually matter in this case but I will continue with the method I used in class</description>
     </item>
     
     <item>
@@ -353,7 +353,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 03 Nov 2013 00:00:00 +0000</pubDate>
       
       <guid>/blog/learning-about-maths-and-you-dont-even-notice/</guid>
-      <description></description>
+      <description>It would seem that the Simpson&#39;s and their creators have been teaching us (well those of us that watch) mathematical concepts for quite a while. Simon Singh shows us how in a recent BBC article
+Homer Simpson&#39;s scary maths problems</description>
     </item>
     
     <item>
@@ -362,7 +363,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 03 Nov 2013 00:00:00 +0000</pubDate>
       
       <guid>/blog/maths-and-bacon/</guid>
-      <description></description>
+      <description>So I&#39;m a big fan of bacon - particularly a nice BLT sandwich - now it seems that the numbers show bacon is a wonder food! Read for yourself
+Bacon is a miracle food</description>
     </item>
     
     <item>
@@ -371,7 +373,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Mon, 08 Oct 2012 00:00:00 +0000</pubDate>
       
       <guid>/blog/maths-and-the-beatles/</guid>
-      <description></description>
+      <description>Maths and the Beatles
+I got this off twitter a while ago and I&#39;ve been meaning to post it for a while. A mathematics professor has found out what the first chord that George Harrison played in &#34;A Hard Day&#39;s Night.&#34; - interesting stuff.</description>
     </item>
     
     <item>
@@ -380,7 +383,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 23 Oct 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/the-wire/</guid>
-      <description></description>
+      <description>A friend of mine put me onto this. I&#39;ve watched The Wire a bit but haven&#39;t got far enough into it to appreciate this bit. I guess the point of this clip is to show that if we can teach using examples that the learners can understand and relate to (or not even realise that they&#39;re learning) then we are more likely to get through to them.
+Please excuse the language</description>
     </item>
     
     <item>
@@ -389,7 +393,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Thu, 09 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/end-of-year-int1-int2/</guid>
-      <description></description>
+      <description>The only other course I taught this year was a combined Intermediate 2 and Intermediate 1 class. This was a very difficult class to teach. By the end of the year there were three classes to teach because the Int 2 part of the class split some finishing with unit 3 and some finishing with unit 4: Applications. The first thing I will change for next year is to set proper ground rules for the students.</description>
     </item>
     
     <item>
@@ -398,7 +402,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 08 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/end-of-year-engineering/</guid>
-      <description></description>
+      <description>Reflecting on the engineering and stats courses that I taught this year, I&#39;d say the engineering course went ok. There is a lot of stuff to cover in the course and several weeks of snow and the holidays got in the way to make everything a little difficult. It acually came down the the students quite a lot. Those who put in the work at home got on fine and those who didn&#39;t put the work in or didn&#39;t attend quite so much found it a struggle.</description>
     </item>
     
     <item>
@@ -407,7 +411,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 08 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/end-of-year-higher/</guid>
-      <description></description>
+      <description>My higher maths class this year went both well and terribly, sort of all at the same time. The class themselves were great, when they turned up and I think that my teaching was pretty good. The problem was the course was rushed - pretty much the whole year. The class is only scheduled for 4.5 hours a week and this makes getting all the material in very difficult. I prefer to let the students try some questions - so they can see the style of them and so I can get an idea of how they are getting on.</description>
     </item>
     
     <item>
@@ -416,7 +420,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 08 Jun 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/end-of-year-numeracy/</guid>
-      <description></description>
+      <description>Firstly, I&#39;ve been seriously lax in actually commenting on here. I have been reflecting but I&#39;ve been snowed under with everything so haven&#39;t had a chance to post. The college year is coming swiftly to an end and I have many things to reflect on. I&#39;m going to divide the reflections into all the subjects I teach and I&#39;ll start with numeracy.
+Good things about numeracy classes this year was that most of them were willing to learn and the classes themselves were sometimes very enjoyable.</description>
     </item>
     
     <item>
@@ -425,7 +430,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/classroom-discipline/</guid>
-      <description></description>
+      <description>Sometimes some of my classes can get out of control. I don&#39;t think they get as bad as some others but they can be a little hard to control.
+I had a class the other week that would just not shut-up when I am trying to present something on the board. Every time I started to talk when I was at the board someone else would start a conversation with the person they were sitting beside.</description>
     </item>
     
     <item>
@@ -434,7 +440,9 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/conversations-with-students/</guid>
-      <description></description>
+      <description>I lost a student the other day...
+No not as in I didn&#39;t know where they were but that I was working through an example on the board and my method didn&#39;t make any sense to them. They pointed this out to me and I tried to explain my method in an alternative way but to no avail.
+I finished the example and let the rest of the class get on with their work, at which point I went back to the example with the student.</description>
     </item>
     
     <item>
@@ -443,7 +451,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 27 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/observations-and-planning/</guid>
-      <description></description>
+      <description>So as part of the teaching diploma I am trying to obtain I am having a couple of my lessons observed. I&#39;ve now had the first observation and although it was a little strange having another teacher in the classroom, I think I got over that after about 5 minutes.
+The class seemed to go quite smoothly and they behaved themselves quite well, at least until the observer left the room at which point they inundated me with questions about how I thought it was going rather than actually doing the work I had set them.</description>
     </item>
     
     <item>
@@ -452,7 +461,9 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/lots-of-work-little-work/</guid>
-      <description></description>
+      <description>I always thought teachers had it easy: lots of holidays, easy hours etc etc
+Wow was I wrong. Having been put in the deep end with little teaching experience I&#39;ve been preparing and planning as I go along. This means that sometimes I seem incredibly busy with a million things to do (when I don&#39;t post anything) and sometimes I&#39;m not as busy (when I get around to posting).
+Now I like doing all the extra work and I think that the pupils find some of the extra work I do helpful - I get requests for extra notes and sheets but I know some other staff who don&#39;t like doing (or don&#39;t d0) work outside of the time they are paid for.</description>
     </item>
     
     <item>
@@ -461,7 +472,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/planning-and-it/</guid>
-      <description></description>
+      <description>So the other week I started teaching a course on how to perform basic statistical calculations on microsoft excel. I thought I had everything planned perfectly but no - a change in the college&#39;s IT setup meant that I was nearly completely screwed.
+Thankfully I had pen drive and was able to sort out all the problems. I&#39;m glad that I don&#39;t mind looking like an idiot in front of students.</description>
     </item>
     
     <item>
@@ -470,7 +482,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 06 Mar 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/throwing-the-book-out/</guid>
-      <description></description>
+      <description>Sorry for the break - hopefully post more regularly now.
+First post I wanted to talk about the flexibility allowed when you&#39;re teaching in an FE college. Some of my classes are numeracy classes - as opposed to maths classes and the syllabus for the numeracy classes are more flexible than those of the maths classes. The schedules also mean I have more time to teach in the order I want.</description>
     </item>
     
     <item>
@@ -479,7 +492,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 30 Jan 2011 00:00:00 +0000</pubDate>
       
       <guid>/blog/getting-students-to-study/</guid>
-      <description></description>
+      <description>I teach in a college. The teaching atmosphere isn&#39;t like school. We do as much as we can for the students - but expect them to act like adults. As far as I&#39;m concerned this means that they are responsible for their own studying outside of class.
+I gave my Intermediate 2 class a test the other week. After they mostly performed rather poorly we had a chat about what went wrong - was the test too hard?</description>
     </item>
     
     <item>
@@ -488,7 +502,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 19 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/aiming-too-high/</guid>
-      <description></description>
+      <description>I&#39;m still doing this. I&#39;m getting a little better at making sure that at least the first few questions students do are ok for them. However, every time I get to a topic I haven&#39;t taught before I&#39;m back to square one. I ask other lecturers to see if they&#39;ve had students find a particular topic difficult but other than that I&#39;m guessing. I can prepare my teaching materials as thoroughly as I like but just miss by a country mile with the questions I&#39;ve prepared for them.</description>
     </item>
     
     <item>
@@ -497,7 +511,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 19 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/positive-feedback/</guid>
-      <description></description>
+      <description>I had a good reaction from a student last week and again this week. One of my numeracy students gave me the distinct impression that he hated maths especially any maths that involved numerical calculations. Before you point it out I&#39;ll happily list the types of maths that don&#39;t involve numerical calculations. Anyway, he was reaching the end of the course having sat (and passed) most of the assessments and we were reviewing one topic before one of the final assessments.</description>
     </item>
     
     <item>
@@ -506,7 +520,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 19 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/preparation-again/</guid>
-      <description></description>
+      <description>You can never be too prepared. Maybe after years of teaching you can be prepared for all the questions you&#39;ll be asked, prepared for all the problems students are going to have.
+In almost every class I have (at least) two levels of students and keeping track of where everyone is at all times is just another level of prep. Then you have all the assessments to be ready for - who has passed this NAB, where do I get extra revision stuff from (and solutions for them).</description>
     </item>
     
     <item>
@@ -515,7 +530,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Fri, 03 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/attention-higher-int2-students/</guid>
-      <description></description>
+      <description>I would like to point the attention of my students to the Mathcentre link (in the links section to the right). Lots of free problems and notes. Click and investigate.
+Also you should all have a wee look at this very cool way to display statistical information.</description>
     </item>
     
     <item>
@@ -524,7 +540,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 01 Dec 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/revision-and-questioning/</guid>
-      <description></description>
+      <description>Sorry, haven&#39;t posted in a while. I&#39;ll try to get back to more regular updates.
+Last week, my classes had some NABs to do and so the topic of revision came up. In a lot of cases people revised well and if they didn&#39;t pass a section there was an explanation for it. They could do examples in class fine but forgot a formula. They were off the day we taught that formula and missed the catch-up class.</description>
     </item>
     
     <item>
@@ -533,7 +550,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/preparation/</guid>
-      <description></description>
+      <description>Preparation is obviously very important in teaching. I&#39;ve occasionally done a bit of teaching off the top of my head but I&#39;ve found I&#39;m pretty much always going to forget something if I don&#39;t prepare.
+I teach a bunch of numeracy classes (6 in total) and I find them quite rewarding but it is very difficult to remember exactly where each pupil is week after week. Almost each class has pupils learning at each of the different levels and its hard to keep track of exactly where each pupil in each class is even with a written record.</description>
     </item>
     
     <item>
@@ -542,7 +560,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Wed, 10 Nov 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/time-keeping-and-work-ethics/</guid>
-      <description></description>
+      <description>I sometimes find it difficult to keep the class moving on. I am always conscious that I don&#39;t want to run out of time at the end of the course and have to cram things in. In turn that means that I feel like I&#39;m going a little quicker than some of the students would prefer, but there are others that are getting a little frustrated that things aren&#39;t moving fast enough.</description>
     </item>
     
     <item>
@@ -551,7 +569,7 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 31 Oct 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/presentations/</guid>
-      <description></description>
+      <description>I&#39;ve done a couple of presentations to classes so far and I did another this week. The facilities I&#39;ve got aren&#39;t amazing but I should probably use them better than I do. The students seem to quite like short presentations as its different from me standing at the whiteboard doing examples. Problem I had this week was that the font size on the plots I used wasn&#39;t big enough and I didn&#39;t discover this until after I&#39;d put it on the wall.</description>
     </item>
     
     <item>
@@ -560,7 +578,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Sun, 31 Oct 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/students/</guid>
-      <description></description>
+      <description>A few weeks ago I lost one of my students whilst teaching logarithmic graphs, they couldn&#39;t see what I&#39;d done or why I&#39;d done it. Whilst trying to figure out how to rephrase and rework what I&#39;d done one of the other students made a suggestion. It was a very good suggestion and I took their advice, redid the question and the &#34;lost&#34; student understood.
+I had problems with teachers in school who were never wrong or at least that&#39;s how they tried to play it.</description>
     </item>
     
     <item>
@@ -569,7 +588,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Tue, 19 Oct 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/money/</guid>
-      <description></description>
+      <description>I had a chat with a colleague today who reminded me about something I wanted to post. When I&#39;ve asked a student what is 2 and a 1/2 % is as a fraction so they can enter it into their calculator I have generally been met with a blank stare and silence. (I&#39;ll get onto the subjest of calculators at a later date)
+However, if I ask them how they would write down 2 and a 1/2 pounds (£) then pretty much they say £2.</description>
     </item>
     
     <item>
@@ -578,7 +598,9 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Mon, 04 Oct 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/order-and-preparation/</guid>
-      <description></description>
+      <description>I taught three classes today and in all of them I made little mistakes (some that could have been avoided)
+First up was Higher. With a test tomorrow revision was the order of the day. I had decided to use a revision sheet produced by one of the other lecturers. The sheet is very good, covers everything a student will need to know for the test.
+Two problems I will try to fix for future revision.</description>
     </item>
     
     <item>
@@ -587,7 +609,8 @@ So long story short I have moved my website to Github Pages and used Jekyll to m
       <pubDate>Fri, 01 Oct 2010 00:00:00 +0000</pubDate>
       
       <guid>/blog/algebra-can-it-be-made-interesting/</guid>
-      <description></description>
+      <description>I started teaching algebra to my Intermediate 2 class this week and also mentioned the topic of indices to my Higher class. Neither was exactly delighted by the idea.
+I haven&#39;t met many people that like algebra and nearly all of them were teachers or worked in maths departments. I like algebra, I&#39;ll admit it, but teaching it can definitely be boring for the pupils. How to learn the basic skills without being bored?</description>
     </item>
     
   </channel>

@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Using Git and Dropbox</title>
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -42,9 +42,9 @@
         
         <li><a href="../../blog/">BLOG</a></li>
         
-        <li><a href="../../programming/">PROGRAMMING</a></li>
-        
         <li><a href="../../research/">RESEARCH</a></li>
+        
+        <li><a href="../../software/">SOFTWARE</a></li>
         
       
       </ul>
@@ -71,22 +71,22 @@
             <div class="blogpost">
               <p>I have been using <a href="https://git-scm.com/">Git</a> and <a href="https://github.com/">Github</a> for a little while and I think both of them are great. However, there are a few Git projects that I either don&rsquo;t want to put on Github or can&rsquo;t but I want to work on them on multiple computers. I might also add that I don&rsquo;t (at the moment) want to pay for private repositories and instead of using an alternative online service I found out I could use Dropbox. To clarify, these are for projects only I am working on.</p>
 <p>To start with let us assume we already have a git repository on one machine. The first step is to create a bare git repository in <a href="https://www.dropbox.com">Dropbox</a>. I have decided to have a specific folder in my main Dropbox folder for all my Git repositories, so we put the new bare respository in there.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init --bare ~Dropbox/Git/New_repos
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git init --bare ~Dropbox/Git/New_repos
 </code></pre></div><p>Then we need to add that as a remote in the repository we&rsquo;re working on.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add dropbox ~Dropbox/Git/New_repos
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add dropbox ~Dropbox/Git/New_repos
 </code></pre></div><p>Finally we push to the remote.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git push -u master dropbox
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git push -u master dropbox
 </code></pre></div><p>The &ldquo;-u&rdquo; flag comes from this <a href="http://blog.shvetsov.com/2013/04/using-git-with-dropbox.html">blog</a> which I followed and it tells Git to track the bare dropbox repository as <a href="http://stackoverflow.com/questions/2739376/definition-of-downstream-and-upstream">upstream</a>.</p>
 <p>Now if I am working on my other machine I can <code>clone</code> the repository with</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone ~/Dropbox/Git/New_repos
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone ~/Dropbox/Git/New_repos
 </code></pre></div><p>and I like to rename the remote.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote rename origin dropbox
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote rename origin dropbox
 </code></pre></div><p>I know that I could do it all in one step as</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone -o dropbox ~/Dropbox/Git/New_repos
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git clone -o dropbox ~/Dropbox/Git/New_repos
 </code></pre></div><p>but I keep forgetting. The <code>-o</code> controls the name of the remote and we can check everything looks ok by looking at the remotes</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote -v
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote -v
 </code></pre></div><p>which should return something along the lines of</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dropbox ~/Dropbox/Git/New_repos <span style="color:#f92672">(</span>fetch<span style="color:#f92672">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dropbox ~/Dropbox/Git/New_repos <span style="color:#f92672">(</span>fetch<span style="color:#f92672">)</span>
 dropbox ~/Dropbox/Git/New_repos <span style="color:#f92672">(</span>push<span style="color:#f92672">)</span>
 </code></pre></div><p>to finish. Once that is done I can push/pull as normal to ensure everything is up to date.</p>
 

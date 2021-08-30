@@ -8,7 +8,7 @@
     <meta name="description" content="My personal webpage built through Hugo and blogdown.">
     <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
     <title>Hosting xaringan slides using github pages</title>
-    <meta name="generator" content="Hugo 0.72.0" />
+    <meta name="generator" content="Hugo 0.87.0" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="../../css/main.css" />
@@ -42,9 +42,9 @@
         
         <li><a href="../../blog/">BLOG</a></li>
         
-        <li><a href="../../programming/">PROGRAMMING</a></li>
-        
         <li><a href="../../research/">RESEARCH</a></li>
+        
+        <li><a href="../../software/">SOFTWARE</a></li>
         
       
       </ul>
@@ -74,17 +74,17 @@
               <p>This is a quick guide to hosting <a href="https://github.com/yihui/xaringan">xaringan</a> slides online using <a href="https://pages.github.com/">github pages</a>.</p>
 <p>To start with I create an RStudio project (initialising a git repository) and then <code>slides.Rmd</code> using the xaringan R markdown template. At this point we could modify the R markdown file but I&rsquo;m going to make sure it works online first.</p>
 <p>Having created <code>slides.html</code> by <em>knitting</em> the R markdown file, we can commit everything we&rsquo;ve got.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git add .
 git commit -m <span style="color:#e6db74">&#34;Initial commit, creating slides.&#34;</span>
 </code></pre></div><p>Now (if it hasn&rsquo;t already happened) we need to add the remote repo. Presuming we have SSH keys set up then we can add the remote from the command line</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git remote add origin git@github.com:user/repo_name.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git remote add origin git@github.com:user/repo_name.git
 </code></pre></div><p>and push what we&rsquo;ve got.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git push -u origin master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git push -u origin master
 </code></pre></div><p>We now have a couple of choices. If you are happy working with multiple branches in a repo then we can create a <code>gh-pages</code> branch and everything will happen automatically. This has the advantage that you can update other branches and only publish the <code>gh-pages</code> branch when you are happy for the slides to be live.</p>
 <p>We can create and move to the new branch</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -b gh-pages
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git checkout -b gh-pages
 </code></pre></div><p>and push.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git push origin gh-pages
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git push origin gh-pages
 </code></pre></div><p>The alternative is to change settings on github and use the <code>master</code> branch. To do this got to <em>Settings</em>, scroll down to <em>Github Pages</em> section and choose the <em>Source</em> to be the <code>master</code> branch.</p>
 <p>Either way, if we now wait a few minutes the slides will be available at <a href="#">https://user.github.io/repo_name/slides.html</a>.</p>
 

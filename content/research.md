@@ -5,9 +5,14 @@ layout: page
 
 ### Current Research
 
-I am currently working at with the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) the [River and Lochs Institute](http://www.uhi.ac.uk/en/research-enterprise/res-themes/environmental/rivers-and-lochs-institute). At the SRUC I mainly work on network analysis of animal movements, automating disesase reporting and building online applications, whilst with the RLI, I do some programming, data analysis and statistical modelling. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/). For full details please see the [programming](https://aj2duncan.com/programming/) page.
+I am currently working with the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) and across several research groups at Inverness College UHI. At the SRUC I mainly work on network analysis of animal movements, automating disease reporting and building online applications. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/). For full details please see the [software](https://aj2duncan.com/software/) page.
+
+- [Orcid Profile](https://orcid.org/0000-0002-7314-9629)
+- [PURE](https://pure.uhi.ac.uk/en/persons/andrew-duncan)
 
 ### Published Articles
+- [Porcine reproductive and respiratory syndrome virus seroprevalence in Scottish finishing pigs between 2006 and 2018](https://bvajournals.onlinelibrary.wiley.com/doi/pdf/10.1002/vetr.349)
+- *Quantifying changes in the British cattle movement network* [(link to preprint)](https://arxiv.org/abs/2104.09270)  and submitted for review. 
 - [When Textbook Answers are the Problem](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 19 and the entire journal should be available. 
 - [R Markdown in education](http://www.scottishmathematicalcouncil.org/wp1/smc-journal-47-2017/) the article is on page 72 and the entire journal should be available. If you are interested the [R Markdown](https://rmarkdown.rstudio.com/) file that I used to create the article is available from this [github repository](https://github.com/aj2duncan/Rmd_Ed_Paper).
 - [Blowfly strike in sheep: self-help surveillance for shepherds is unsustainable](http://veterinaryrecord.bmj.com/content/180/11/280.1.full). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/11171).

@@ -1,5 +1,5 @@
 ---
-title: "Programming/Software"
+title: "Software"
 layout: page
 ---
 

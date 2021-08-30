@@ -49,7 +49,7 @@ bbox:           xmin: 5720 ymin: 5180 xmax: 655503 ymax: 1220373
 projected CRS:  Transverse Mercator
 ```
 
-This gives us a tidy version of our earlier data and the message provided when reading it in shows us our CRS which we're going to have to change from Transverse Mercator to something that will work with Leaflet - *latitude* and *longitude*. We can do this using st_transform()`
+This gives us a tidy version of our earlier data and the message provided when reading it in shows us our CRS which we're going to have to change from Transverse Mercator to something that will work with Leaflet - *latitude* and *longitude*. We can do this using `st_transform()`
 
 ```{r}
 postcodes <- st_transform(postcodes, 4326)

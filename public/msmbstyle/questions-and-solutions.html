@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="pandoc">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="2 Questions and Solutions | MSMB HTML Book Style">
+<meta property="og:type" content="book">
+<meta name="author" content="Mike Smith &amp; Andrew Duncan">
+<meta name="date" content="2021-08-30">
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><meta name="description" content="2 Questions and Solutions | MSMB HTML Book Style">
+<title>2 Questions and Solutions | MSMB HTML Book Style</title>
+<script src="libs/header-attrs/header-attrs.js"></script><script src="libs/jquery/jquery.min.js"></script><link href="libs/tufte-css/tufte.css" rel="stylesheet">
+<link href="libs/BootSideMenu/BootSideMenu.css" rel="stylesheet">
+<script>
+function toggle_visibility(id1, id2) {
+var e = document.getElementById(id1);
+var f = document.getElementById(id2);
+
+e.style.display = ((e.style.display!='none') ? 'none' : 'block');
+
+if(f.classList.contains('fa-plus-square')) {
+    f.classList.add('fa-minus-square')
+    f.classList.remove('fa-plus-square')
+} else {
+    f.classList.add('fa-plus-square')
+    f.classList.remove('fa-minus-square')
+}
+
+}
+</script>
+<script>
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+    if ($(window).width() < 768) {
+        var currentScrollPos = window.pageYOffset;
+        if (prevScrollpos > currentScrollPos) {
+            document.getElementById("navbar").style.top = "0";
+        } else {
+            document.getElementById("navbar").style.top = "-50px";
+        }
+        prevScrollpos = currentScrollPos;
+    }
+}
+</script>
+<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        
+        <!-- Optional theme 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"> -->
+            
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="libs/BootSideMenu/BootSideMenu.js"></script><link href="libs/msmb-css/msmb.css" rel="stylesheet">
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+</head>
+<body>
+
+
+
+<div class="navbar-fixed-top msmb-header" id="navbar">
+<div class="row-fluid">
+<div id="TOC" class="container">
+<nav class="navbar-default"><!-- Brand and toggle get grouped for better mobile display --><div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <span class="title-collapsed visible-xs">
+MSMB HTML Book Style
+</span>
+        </div>
+        
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav hidden-xs">
+<!-- title and authors --><span class="title hidden-xs">MSMB HTML Book Style</span><br><span class="author hidden-xs">Mike Smith &amp; Andrew Duncan</span>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Chapters <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+<!-- links to chapters here --><li><a href="index.html">Introduction</a></li>
+<li><a href="tables.html"><span class="toc-section-number">1</span> Tables</a></li>
+<li><a href="questions-and-solutions.html"><span class="toc-section-number">2</span> Questions and Solutions</a></li>
+<li><a href="figures-and-margin-content.html"><span class="toc-section-number">3</span> Figures and Margin Content</a></li>
+<li><a href="other-additions.html"><span class="toc-section-number">4</span> Other Additions</a></li>
+<li><a href="references.html">References</a></li>
+</ul>
+</li>
+        </ul>
+</div>
+<!-- /.navbar-collapse -->
+        </nav>
+</div>
+<!-- /.container-fluid -->
+        
+
+
+
+
+
+
+
+
+</div>
+</div>
+<div class="container chapter-content">
+<div class="row">
+<div class="hidden-xs hidden-sm col-md-2">
+<div class="panel panel-default toc-section">
+<div class="panel-heading">Chapter Navigation</div>
+<div class="section-link list-group">
+<a class="list-group-item" href="#questions">2.1 Questions</a>
+<a class="list-group-item" href="#solutions">2.2 Solutions</a>
+</div>
+</div>
+</div>
+<div class="hidden-xs hidden-md hidden-lg">
+<div id="mySidenav">
+<div class="panel panel-default toc-section-slide">
+<div class="panel-heading">Chapter Navigation</div>
+<div class="section-link list-group">
+<a class="list-group-item" href="#questions">2.1 Questions</a>
+<a class="list-group-item" href="#solutions">2.2 Solutions</a>
+</div>
+</div>
+</div>
+</div>
+<script>$("#mySidenav").BootSideMenu({pushBody:false, width:"25%", autoClose:true});</script>
+<div class="col-xs-12 col-md-10">
+<div id="questions-and-solutions" class="section level1" number="2">
+<div class="row"><div class="col-sm-9"><h1 number="2">
+<h1><span class="header-section-number">2</span> Questions and Solutions</h1>
+</div></div>
+<div class="row"><div class="col-sm-9"><p>In teaching material it is common to want to include questions (and possibly solutions) to the reader. It is possible to use <a href="https://bookdown.org/yihui/bookdown/custom-blocks.html">custom blocks</a> to achieve distinct styling, however this doesn’t provide internal labelling, referencing and numbering. <strong>bookdown</strong> doesn’t current provide an environment for questions and answers, although one can manipulate the various “<a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html#theorems">theorems</a>” to achieve something similar.</p></div></div>
+<div class="row"><div class="col-sm-9"><p><strong>msmbstyle</strong> provides a set of functions that can be used to demark questions and answers in the the R Markdown document. They can be used either inline or in code chunks, and the precise usage may vary depending upon the complexity of the text you wish to include.</p></div></div>
+<div id="questions" class="section level2" number="2.1">
+<div class="row"><div class="col-sm-9"><h2 number="2.1">
+<span class="header-section-number">2.1</span> Questions</h2></div></div>
+<div id="simple-question" class="section level3" number="2.1.1">
+<div class="row"><div class="col-sm-9"><h3 number="2.1.1">
+<span class="header-section-number">2.1.1</span> Simple question</h3></div></div>
+<div class="row">
+<div class="col-sm-9"><p>If your question is simply a paragraph of text, you can use <code>msmbstyle::question()</code> and provide the paragraph via the argument <code>text</code>. We see an example of this approach below.</p></div>
+<div class="col-sm-3 margin-note">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> The code is shown here, but it would be more typical to hide it via <code>echo = FALSE</code>
+</div>
+</div>
+
+<div class="row test">
+<div class="col-sm-9">
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="questions-and-solutions.html#cb4-1" aria-hidden="true" tabindex="-1"></a>msmbstyle<span class="sc">::</span><span class="fu">question</span>(<span class="at">text =</span> <span class="st">"Is this question displaying correctly?"</span>)</span></code></pre></div>
+</div>
+</div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="question-begin">► Question</span></div></div>
+<div class="question-body">
+Is this question displaying correctly?
+</div>
+<div class="row"><div class="col-sm-9"><span class="question-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+<div class="row"><div class="col-sm-9"><p>You can also include a question using inline code e.g. <code>`r msmbstyle::question()`</code>. This is perhaps simpler than using code chunks, since it is unlikely we ever want to display the function call itself. The question below is generated in this fashion.</p></div></div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="question-begin">► Question</span></div></div>
+<div class="question-body">
+This is our second question. It should not be numbered. Is it?
+</div>
+<div class="row"><div class="col-sm-9"><span class="question-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+<div class="row">
+<div class="col-sm-9"><p>In addition to the <code>text</code> argument, you can also provide a <code>label</code> to the function. <code>label</code> is optional, and if provided can be used to reference the label in the main text of the book. Labels for questions must start with the string ‘<em>ques:</em>’ In Question <a href="questions-and-solutions.html#ques:two"><strong>2.1</strong></a> we can see an example of a labelled question that can be referenced (as seen in this sentence).</p></div>
+<div class="col-sm-3 margin-note">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Currently using references to a question will result in a warning such as ‘<code>The label(s) ques:two not found</code>.’ This is because <strong>knitr</strong> is unable to resolve the reference (since this is an addon). This is irritating, but can be ignored, and may be addressed in the future
+</div>
+</div>
+
+<div id="ques:two" class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="question-begin">► Question 2.1</span></div></div>
+<div class="question-body">
+This is our second question. We expect this to have a number.
+</div>
+<div class="row"><div class="col-sm-9"><span class="question-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+<div id="including-code-in-a-question." class="section level4 unnumbered">
+<h4>Including <code>"code"</code> in a question.</h4>
+<div class="row"><div class="col-sm-9"><p>In order to include text formated to look like R code in you can use the sequence ‘<code>\x60</code>’ to represent the backticks inside the text argument e.g.</p></div></div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="question-begin">► Question</span></div></div>
+<div class="question-body">
+Does this question include <code>x</code> and <code>y</code>?
+</div>
+<div class="row"><div class="col-sm-9"><span class="question-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+</div>
+</div>
+<div id="more-complex-questions" class="section level3" number="2.1.2">
+<div class="row"><div class="col-sm-9"><h3 number="2.1.2">
+<span class="header-section-number">2.1.2</span> More complex questions</h3></div></div>
+<div class="row">
+<div class="col-sm-9"><p>If you need to provide more detail than a single paragraph in a question, you can use the functions <code>question_begin()</code> and <code>question_end()</code> to demark the content of the document you wish to be included in the question.</p></div>
+<div class="col-sm-3 margin-note">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> This is similar to using <code>\begin{}</code> and <code>\end{}</code> tags in a Latex document.
+</div>
+</div>
+
+<div class="row">
+<div class="col-sm-9"><p>They can again be called either inline or in code chunks (inline seems simpler) within the R Markdown document, and it is imperative they be used as a pair, otherwise the resulting document will have missmatched HTML tags.</p></div>
+<div class="col-sm-3 margin-note">
+<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Currently there’s no sanity checking for this, it’s up to the author!
+</div>
+</div>
+
+<div class="row"><div class="col-sm-9"><p>The example below shows a question that involves several paragraphs of text, along with a code block and the output created by running this code.</p></div></div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="question-begin">► Question</span></div></div>
+<div class="question-body">
+<div class="row"><div class="col-sm-9"><p>This is a more complex question. It involves both this text, some code, and the plot produced by that code.</p></div></div>
+<div class="row test">
+<div class="col-sm-9">
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="questions-and-solutions.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>( <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span> )</span></code></pre></div>
+</div>
+<div class="col-sm-9">
+<p><img src="_main_files/figure-html/longer-question-1.png" alt="An informative correlation" width="672"></p>
+</div>
+<div class="caption col-sm-3">
+An informative correlation
+</div>
+</div>
+</div>
+<div class="row"><div class="col-sm-9"><p>What do you think about the data shown in Figure <a href="#fig:longer-question">2.1</a>?</p></div></div>
+</div>
+<div class="row"><div class="col-sm-9"><span class="question-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+</div>
+</div>
+<div id="solutions" class="section level2" number="2.2">
+<div class="row"><div class="col-sm-9"><h2 number="2.2">
+<span class="header-section-number">2.2</span> Solutions</h2></div></div>
+<div class="row"><div class="col-sm-9"><p>In similar fasion to questions, you can insert solutions using either the function <code>msmbstyle::solution()</code>, or a combination of <code>msmbstyle::solution_begin()</code> &amp; <code>msmbstyle::solution_end()</code>. <em>Currently solutions can not be labelled or reference in the text. This is primarily because of an assumption that they would always have an accompanying question that could be referenced, and may change in the future.</em></p></div></div>
+<div id="simple-solution" class="section level3" number="2.2.1">
+<div class="row"><div class="col-sm-9"><h3 number="2.2.1">
+<span class="header-section-number">2.2.1</span> Simple solution</h3></div></div>
+<div class="row"><div class="col-sm-9"><p>Again, if your solution is just a single a paragraph of text, you can use <code>msmbstyle::solution()</code> and provide the paragraph via the argument <code>text</code>. We see an example of this approach below:</p></div></div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="solution-begin">► Solution<span id="sol-start-1" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-1', 'sol-start-1')"></span></span></div></div>
+<div id="sol-body-1" class="solution-body" style="display: none;">
+<div class="row"><div class="col-sm-9"><p>
+This is a single paragraph providing an answer.
+</p></div></div>
+</div>
+<div class="row"><div class="col-sm-9"><span class="solution-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+<div class="row"><div class="col-sm-9"><p>There are additional arguments to this function: <code>header</code> and <code>toggle</code>. <code>header</code> allows you to set the headeing text that begins a solution e.g. if you would rather they were called ‘answers.’ <code>toggle</code> expects a logical which, if set to <code>TRUE</code> (the default), will create the solution in a ‘collapsed’ format. Pressing the plus icon will then show the content of the solution. This gives the option of initially hiding a solution, so the reader is forced into taking an active step to reveal the answer.</p></div></div>
+<div class="row"><div class="col-sm-9"><p>Below is an example where the collapsing behaviour has been turned off and the section header renamed.</p></div></div>
+<div class="row test">
+<div class="col-sm-9">
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="questions-and-solutions.html#cb6-1" aria-hidden="true" tabindex="-1"></a>msmbstyle<span class="sc">::</span><span class="fu">solution</span>(<span class="at">text =</span> <span class="st">"This an 'Answer' and cannot be hidden"</span>,</span>
+<span id="cb6-2"><a href="questions-and-solutions.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                    <span class="at">header =</span> <span class="st">"Answer"</span>,</span>
+<span id="cb6-3"><a href="questions-and-solutions.html#cb6-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">toggle =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+</div>
+</div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="solution-begin">Answer</span></div></div>
+<div class="solution-body">
+<div class="row"><div class="col-sm-9"><p>
+This an ‘Answer’ and cannot be hidden
+</p></div></div>
+</div>
+<div class="row"><div class="col-sm-9"><span class="solution-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+</div>
+<div id="more-complex-solutions" class="section level3" number="2.2.2">
+<div class="row"><div class="col-sm-9"><h3 number="2.2.2">
+<span class="header-section-number">2.2.2</span> More complex solutions</h3></div></div>
+<div class="row"><div class="col-sm-9"><p>More comprehensive solutions can similarly be indicated with calls to <code>solution_begin()</code> and <code>solution_end()</code>. The first of these takes the same arguments as <code>solution()</code> allowing you to set the visibility toggle and section heading text.</p></div></div>
+<div class="ques-sol">
+<div class="row"><div class="col-sm-9"><span class="solution-begin">► Solution<span id="sol-start-3" class="fa fa-plus-square solution-icon clickable" onclick="toggle_visibility('sol-body-3', 'sol-start-3')"></span></span></div></div>
+<div id="sol-body-3" class="solution-body" style="display: none;">
+<div class="row"><div class="col-sm-9"><p>This is a more complex solution. We’ll reuse some plotting code from the <strong>tufte</strong> vignette to include a figure in the margin.</p></div></div>
+<div class="row test">
+<div class="col-sm-3 col-sm-push-9">
+<img src="_main_files/figure-html/fig-margin2-1.png" alt="MPG vs horsepower, colored by transmission." width="336"><div class="caption">
+MPG vs horsepower, colored by transmission.
+</div>
+</div>
+<div class="col-sm-9 col-sm-pull-3">
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="questions-and-solutions.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb7-2"><a href="questions-and-solutions.html#cb7-2" aria-hidden="true" tabindex="-1"></a>mtcars2 <span class="ot">&lt;-</span> mtcars</span>
+<span id="cb7-3"><a href="questions-and-solutions.html#cb7-3" aria-hidden="true" tabindex="-1"></a>mtcars2<span class="sc">$</span>am <span class="ot">&lt;-</span> <span class="fu">factor</span>(</span>
+<span id="cb7-4"><a href="questions-and-solutions.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  mtcars<span class="sc">$</span>am, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">'automatic'</span>, <span class="st">'manual'</span>)</span>
+<span id="cb7-5"><a href="questions-and-solutions.html#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-6"><a href="questions-and-solutions.html#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars2, <span class="fu">aes</span>(hp, mpg, <span class="at">color =</span> am)) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="questions-and-solutions.html#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">geom_smooth</span>() <span class="sc">+</span></span>
+<span id="cb7-8"><a href="questions-and-solutions.html#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">'bottom'</span>)</span></code></pre></div>
+</div>
+<div class="col-sm-9 col-sm-pull-3">
+<pre><code>## `geom_smooth()` using method = 'loess' and formula 'y ~ x'</code></pre>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-sm-9"><span class="solution-end"><span class="fa fa-square-o solution-icon"></span></span></div></div>
+</div>
+<div class="row"><div class="col-sm-9"><p>Everything including the margin figure is contained within our ‘collapsed’ solution environment and can be revealed by clicking on the plus symbol.</p></div></div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12">
+<p style="text-align: center;">
+<a href="tables.html"><button class="btn btn-default">Previous</button></a>
+<a href="figures-and-margin-content.html"><button class="btn btn-default">Next</button></a>
+</p>
+<p class="build-date">Page built: 
+2021-08-30
+</p>
+</div>
+</div>
+</div>
+
+
+
+</body>
+</html>
+

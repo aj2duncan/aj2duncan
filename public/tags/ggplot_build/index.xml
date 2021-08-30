@@ -6,11 +6,7 @@
     <description>Recent content in ggplot_build() on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/tags/ggplot_build/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ggplot_build/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>More info on ggplots</title>
       <link>/blog/more-info-on-ggplots/</link>
