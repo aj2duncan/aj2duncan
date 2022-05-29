@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>lubridate on aj2duncan.com</title>
+    <link>/tags/lubridate/</link>
+    <description>Recent content in lubridate on aj2duncan.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 30 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/lubridate/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving Axis Labels in ggplot2</title>
+      <link>/blog/moving-axis-labels-in-ggplot2/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/moving-axis-labels-in-ggplot2/</guid>
+      <description>A wee while ago I needed to tweak some plots. The plots are exported as jpegs and are always results over the last ten years. The change I needed to make was to move the default labels produced by ggplot2.
+To demonstrate, let’s look at an example by reducing the economics dataset to 10 years of data and producing a quick plot.
+library(tidyverse)library(lubridate)# reduce the datadata_to_plot &amp;lt;- filter(economics, between(date, as.</description>
+    </item>
+    
+  </channel>
+</rss>

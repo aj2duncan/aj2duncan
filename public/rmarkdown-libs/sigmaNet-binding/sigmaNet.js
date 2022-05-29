@@ -50,7 +50,6 @@ HTMLWidgets.widget({
           });
           s.graph.edges().forEach(function(e) {
             e.originalColor = e.color;
-            e.type = x.options.edgeArrows;
           });
           s.bind(x.options.neighborStart, function(e) {
             var nodeId = e.data.node.id,

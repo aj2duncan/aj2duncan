@@ -27,7 +27,7 @@ output: powerpoint_presentation
 which produces a pretty bland title page.
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide1.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide1.jfif){width=70%}
 </div>
 
 New Slides are started with either a header 1 `#`, header 2 `##` or if you want a new slide without a header use a horizontal rule `---`. Standard markdown syntax can be used within slides and any footnotes you include will be automatically placed in a final slide entitled **Notes**. 
@@ -43,7 +43,7 @@ Including links like [my website](https://aj2duncan.com).
 ```
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide2.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide2.jfif){width=70%}
 </div>
 
 Bullets can be added, either without numbering
@@ -57,7 +57,7 @@ Bullets can be added, either without numbering
 ```
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide3.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide3.jfif){width=70%}
 </div>
 
 
@@ -73,7 +73,7 @@ or with
 ```
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide4.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide4.jfif){width=70%}
 </div>
 
 
@@ -90,7 +90,7 @@ summary(cars)
 ````
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide5.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide5.jfif){width=70%}
 </div>
 
 The output can also be put in a table
@@ -105,7 +105,7 @@ knitr::kable(summary(cars), row.names = FALSE)
 ````
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide6.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide6.jfif){width=70%}
 </div>
 
 
@@ -120,7 +120,7 @@ plot(pressure)
 ````
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide7.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide7.jfif){width=70%}
 </div>
 
 You can use two columns but pandoc does not currently [see the issue here](){target='_blank'} support custom widths. However, it does seem possible depending on any template that you may be using. 
@@ -139,7 +139,7 @@ contents of the right column
 ```
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide8.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide8.jfif){width=70%}
 </div>
 
 Finally, you can also use LaTeX formatting for equations. 
@@ -154,7 +154,7 @@ $$
 ```
 
 <div class="container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide9.JPG){width=70%}
+![](/images/r-markdown-powerpoint/Slide9.jfif){width=70%}
 </div>
 
 If you want to using a different template then just like with a word document you can provide a template file in the YAML header. I've tested this with a generic Powerpoint and the results can be seen in the gif below. 
@@ -169,7 +169,7 @@ output:
 ```
 
 <div class = "container">
-![](/blog/2020-05-09-r-markdown-to-powerpoint_files/template.gif){width=70%}
+![](/images/r-markdown-powerpoint/template.gif){width=70%}
 </div>
 
 This [RStudio article](https://support.rstudio.com/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-RStudio){target='_blank'} gives further details on templates and also how [Pandoc](https://pandoc.org/){target='_blank'} decides on how the headers/horizontal lines start new slides.

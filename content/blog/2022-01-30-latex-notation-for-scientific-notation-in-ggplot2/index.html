@@ -1,0 +1,89 @@
+---
+title: LaTeX Notation for Scientific Notation in ggplot2
+author: ''
+date: '2022-01-30'
+slug: latex-notation-for-scientific-notation-in-ggplot2
+categories:
+  - ggplot2
+tags:
+  - ggplot2
+  - LaTeX
+description: ''
+highlight: true
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>A while ago I was tinkering with a plot and realised that tweaking the scientific notation format would improve the look of the final image. We can start by loading our packages and producing an example plot to see what the problem we need to fix is.</p>
+<pre class="r"><code>library(tidyverse)
+# change the unemployment figures so they aren&#39;t in thousands
+economics &lt;- mutate(economics, unemploy = unemploy * 1000) 
+ggplot(economics, aes(x = date, y = unemploy)) +
+  geom_line()</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>The scientific notation is perfectly sensible but the <code>e+08</code> notation isn’t great. This led me to look for a way of changing the <code>e+08</code> to a LaTeX notation of <span class="math inline">\(\times 10^8\)</span>. After a quick google I came to <a href="https://stackoverflow.com/questions/10762287/how-can-i-format-axis-labels-with-exponents-with-ggplot2-and-scales" target="_blank">this stackoverflow post</a>. This gives us</p>
+<pre class="r"><code>scientific_10 &lt;- function(x) {
+  parse(text=gsub(&quot;e&quot;, &quot; %*% 10^&quot;, scales::scientific_format()(x)))
+}</code></pre>
+<p>and we can use it with <code>ggplot2</code> as such.</p>
+<pre class="r"><code>ggplot(economics, aes(x = date, y = unemploy)) +
+  geom_line() +
+  scale_y_continuous(label=scientific_10)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>This is pretty much perfect already but as you can see from the example in the stackoverflow post</p>
+<pre class="r"><code>library(patchwork)
+x &lt;- 1:4
+y &lt;- c(0, 0.0001, 0.0002, 0.0003)
+
+dd &lt;- data.frame(x, y)
+
+before &lt;- ggplot(dd, aes(x, y)) + 
+  geom_point() +
+  ggtitle(&quot;Before&quot;)
+
+after &lt;- ggplot(dd, aes(x, y)) + 
+  geom_point() +
+  scale_y_continuous(label = scientific_10) +
+  ggtitle(&quot;After&quot;)
+
+before + after</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>the <code>0e+00</code> should really just be <code>0</code> and not need any work done. I also think that the <code>gsub()</code> notation isn’t that readable. Therefore I rewrote the function to strip out the <code>e+00</code> from the <code>0</code> and use <code>stringr</code> functions and the pipe because I’d likely have the <code>tidyverse</code> loaded anyway.</p>
+<pre class="r"><code>scientific_10 &lt;- function(x) {
+  scales::scientific_format()(x) %&gt;% 
+    str_remove_all(&quot;e\\+00&quot;) %&gt;% # strip e+00 as we don&#39;t need it
+    str_replace_all(&quot;e&quot;, &quot; %*% 10^&quot;) %&gt;%
+    parse(text = .)
+}</code></pre>
+<p>This still works great with the economics dataset</p>
+<pre class="r"><code>ggplot(economics, aes(x = date, y = unemploy)) +
+  geom_line() +
+  scale_y_continuous(label=scientific_10)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<p>but it also fixes the issue with 0.</p>
+<pre class="r"><code>after &lt;- ggplot(dd, aes(x, y)) + 
+  geom_point() +
+  scale_y_continuous(label = scientific_10) +
+  ggtitle(&quot;After&quot;)
+
+before + after</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>For anyone wanting to use base <code>R</code> here is a version with no <code>stringr</code> dependencies or the pipe.</p>
+<pre class="r"><code>scientific_10_base &lt;- function(x) {
+  sci_form &lt;- scales::scientific_format()(x)
+  # strip e+00 as we don&#39;t need it
+  zero_fix &lt;- gsub(&quot;e\\+00&quot;, &quot;&quot;, sci_form)
+  latex_not &lt;- gsub(&quot;e&quot;, &quot; %*% 10^&quot;, zero_fix) 
+  
+  # return parsed version
+  return(parse(text = latex_not))
+}</code></pre>
+<pre class="r"><code>after &lt;- ggplot(dd, aes(x, y)) + 
+  geom_point() +
+  scale_y_continuous(label = scientific_10_base) +
+  ggtitle(&quot;After&quot;)
+
+before + after</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+<p>Clearly, this works just as well as the <code>stringr</code> version so feel free to use either. I find the <code>stringr</code> version easier to read and hopefully remember what it does when I come back to it at some point.</p>

@@ -3,27 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/creating-a-squared-grid-across-scotland/</loc>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/leaflet/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/postcode-polygons-on-a-leaflet-map-updated/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/r/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/sf/</loc>
-    <lastmod>2020-11-21T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/</loc>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tmap/</loc>
+    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ggplot2/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/ggplot2/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/latex/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/latex-notation-for-scientific-notation-in-ggplot2/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/lubridate/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/moving-axis-labels-in-ggplot2/</loc>
+    <lastmod>2022-01-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/postcode-polygons-on-a-leaflet-map-updated/</loc>
     <lastmod>2020-11-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/dplyr/</loc>
@@ -68,9 +92,6 @@
     <loc>/blog/plotting-rurality-in-scotlands/</loc>
     <lastmod>2019-05-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/tmap/</loc>
-    <lastmod>2019-05-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/blog/changing-base-of-log/</loc>
     <lastmod>2019-02-21T00:00:00+00:00</lastmod>
   </url><url>
@@ -85,12 +106,6 @@
   </url><url>
     <loc>/blog/using-plotly-to-generate-interactive-3d-plots/</loc>
     <lastmod>2018-05-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/ggplot2/</loc>
-    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/ggplot2/</loc>
-    <lastmod>2018-05-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/ggplot-build-again/</loc>
     <lastmod>2018-05-06T00:00:00+00:00</lastmod>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="My personal webpage built through Hugo and blogdown.">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>Creating a Squared Grid Across Scotland</title>
+    <meta name="generator" content="Hugo 0.92.1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <link rel="stylesheet" href="../../css/custom_leaflet.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../blog/">BLOG</a></li>
+        
+        <li><a href="../../research/">RESEARCH</a></li>
+        
+        <li><a href="../../software/">SOFTWARE</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../blog/creating-a-squared-grid-across-scotland/">Creating a Squared Grid Across Scotland</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          May 29, 2022
+            &nbsp;&nbsp;
+            
+            <span class="label label-tag">leaflet</span>
+            
+            <span class="label label-tag">sf</span>
+            
+            <span class="label label-tag">tmap</span>
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+<script src="../../blog/creating-a-squared-grid-across-scotland/index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Recently I have been using the <a href="https://r-spatial.github.io/sf/" target="_blank">sf</a> and <a href="https://r-tmap.github.io/tmap/" target="_blank">tmap</a> packages a lot and I thought I would come back to finish a draft post I started a while ago.</p>
+<p>As part of a project a while ago, I needed to create a square grid across Scotland and produce centroids for each. We start by loading the packages we’ll need and the shapefile.</p>
+<pre class="r"><code>library(sf)
+library(tmap)
+scot &lt;- st_read(&quot;scot_shapefile/scot.shp&quot;)</code></pre>
+<p>We can see what this looks like with a quick plot.</p>
+<pre class="r"><code>tm_base &lt;- tm_shape(scot) + 
+  tm_polygons()
+tm_base</code></pre>
+<p><img src="../../blog/creating-a-squared-grid-across-scotland/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Next we define the size of the grid (in metres) and use <code>st_make_grid()</code> to create the grid based on the bounding box.</p>
+<pre class="r"><code>size &lt;- 50000 # 50km squares to speed things up
+
+# create grid
+scot_grid &lt;- st_make_grid(scot, square = TRUE, cellsize = c(size, size)) %&gt;%
+  st_sf()</code></pre>
+<p>We can plot this to see what it looks like.</p>
+<pre class="r"><code>tm_base +
+  tm_shape(scot_grid) + 
+  tm_borders() # just the borders of the grid cells</code></pre>
+<p><img src="../../blog/creating-a-squared-grid-across-scotland/index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Now we have a choice. We can calculate all the centroids and then keep only those that intersect with Scotland or find the intersection first. Here we use <code>st_filter()</code> to subset the grid to just those squares that intersect with Scotland.</p>
+<pre class="r"><code>scot_only_grid &lt;- st_filter(scot_grid, scot) 
+tm_base +
+  tm_shape(scot_only_grid) + 
+  tm_borders() # just the borders of the grid cells</code></pre>
+<p><img src="../../blog/creating-a-squared-grid-across-scotland/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Now we can calculate the centroids and plot everything to demonstrate.</p>
+<pre class="r"><code># calculate centroids for each square in the grid
+grid_points &lt;- st_centroid(scot_only_grid)
+
+# with tmap
+tm_base +
+  tm_shape(scot_only_grid) + 
+  tm_borders() + 
+  tm_shape(grid_points) + 
+  tm_dots(size = 0.25) # making them a little more noticeable</code></pre>
+<p><img src="../../blog/creating-a-squared-grid-across-scotland/index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+
+            
+            </div>
+          </div>
+          <hr>
+       
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://github.com/rstudio/blogdown" target = "_blank">Blogdown</a>, <a href="https://gohugo.io/" target = "_blank">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/" target = "_blank">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,56 @@
+---
+title: Creating a Squared Grid Across Scotland
+author: ''
+date: '2022-05-29'
+slug: creating-a-squared-grid-across-scotland
+categories:
+  - R
+tags:
+  - leaflet
+  - sf
+  - tmap
+description: ''
+highlight: true
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Recently I have been using the <a href="https://r-spatial.github.io/sf/" target="_blank">sf</a> and <a href="https://r-tmap.github.io/tmap/" target="_blank">tmap</a> packages a lot and I thought I would come back to finish a draft post I started a while ago.</p>
+<p>As part of a project a while ago, I needed to create a square grid across Scotland and produce centroids for each. We start by loading the packages we’ll need and the shapefile.</p>
+<pre class="r"><code>library(sf)
+library(tmap)
+scot &lt;- st_read(&quot;scot_shapefile/scot.shp&quot;)</code></pre>
+<p>We can see what this looks like with a quick plot.</p>
+<pre class="r"><code>tm_base &lt;- tm_shape(scot) + 
+  tm_polygons()
+tm_base</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Next we define the size of the grid (in metres) and use <code>st_make_grid()</code> to create the grid based on the bounding box.</p>
+<pre class="r"><code>size &lt;- 50000 # 50km squares to speed things up
+
+# create grid
+scot_grid &lt;- st_make_grid(scot, square = TRUE, cellsize = c(size, size)) %&gt;%
+  st_sf()</code></pre>
+<p>We can plot this to see what it looks like.</p>
+<pre class="r"><code>tm_base +
+  tm_shape(scot_grid) + 
+  tm_borders() # just the borders of the grid cells</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Now we have a choice. We can calculate all the centroids and then keep only those that intersect with Scotland or find the intersection first. Here we use <code>st_filter()</code> to subset the grid to just those squares that intersect with Scotland.</p>
+<pre class="r"><code>scot_only_grid &lt;- st_filter(scot_grid, scot) 
+tm_base +
+  tm_shape(scot_only_grid) + 
+  tm_borders() # just the borders of the grid cells</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Now we can calculate the centroids and plot everything to demonstrate.</p>
+<pre class="r"><code># calculate centroids for each square in the grid
+grid_points &lt;- st_centroid(scot_only_grid)
+
+# with tmap
+tm_base +
+  tm_shape(scot_only_grid) + 
+  tm_borders() + 
+  tm_shape(grid_points) + 
+  tm_dots(size = 0.25) # making them a little more noticeable</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>

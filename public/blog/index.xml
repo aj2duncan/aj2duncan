@@ -6,7 +6,39 @@
     <description>Recent content in Blogs on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2020 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a Squared Grid Across Scotland</title>
+      <link>/blog/creating-a-squared-grid-across-scotland/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/creating-a-squared-grid-across-scotland/</guid>
+      <description>Recently I have been using the sf and tmap packages a lot and I thought I would come back to finish a draft post I started a while ago.
+As part of a project a while ago, I needed to create a square grid across Scotland and produce centroids for each. We start by loading the packages we’ll need and the shapefile.
+library(sf)library(tmap)scot &amp;lt;- st_read(&amp;quot;scot_shapefile/scot.shp&amp;quot;)We can see what this looks like with a quick plot.</description>
+    </item>
+    
+    <item>
+      <title>LaTeX Notation for Scientific Notation in ggplot2</title>
+      <link>/blog/latex-notation-for-scientific-notation-in-ggplot2/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/latex-notation-for-scientific-notation-in-ggplot2/</guid>
+      <description>A while ago I was tinkering with a plot and realised that tweaking the scientific notation format would improve the look of the final image. We can start by loading our packages and producing an example plot to see what the problem we need to fix is.
+library(tidyverse)# change the unemployment figures so they aren&amp;#39;t in thousandseconomics &amp;lt;- mutate(economics, unemploy = unemploy * 1000) ggplot(economics, aes(x = date, y = unemploy)) +geom_line()The scientific notation is perfectly sensible but the e+08 notation isn’t great.</description>
+    </item>
+    
+    <item>
+      <title>Moving Axis Labels in ggplot2</title>
+      <link>/blog/moving-axis-labels-in-ggplot2/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/moving-axis-labels-in-ggplot2/</guid>
+      <description>A wee while ago I needed to tweak some plots. The plots are exported as jpegs and are always results over the last ten years. The change I needed to make was to move the default labels produced by ggplot2.
+To demonstrate, let’s look at an example by reducing the economics dataset to 10 years of data and producing a quick plot.
+library(tidyverse)library(lubridate)# reduce the datadata_to_plot &amp;lt;- filter(economics, between(date, as.</description>
+    </item>
+    
     <item>
       <title>Postcode Polygons on a Leaflet Map - Updated</title>
       <link>/blog/postcode-polygons-on-a-leaflet-map-updated/</link>

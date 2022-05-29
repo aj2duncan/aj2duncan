@@ -1,0 +1,78 @@
+---
+title: Moving Axis Labels in ggplot2
+author: ''
+date: '2022-01-30'
+slug: moving-axis-labels-in-ggplot2
+categories:
+  - R
+  - ggplot2
+tags:
+  - ggplot2
+  - lubridate
+description: ''
+highlight: true
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>A wee while ago I needed to tweak some plots. The plots are exported as jpegs and are always results over the last ten years. The change I needed to make was to move the default labels produced by <em>ggplot2</em>.</p>
+<p>To demonstrate, let’s look at an example by reducing the <code>economics</code> dataset to 10 years of data and producing a quick plot.</p>
+<pre class="r"><code>library(tidyverse)
+library(lubridate)
+
+# reduce the data
+data_to_plot &lt;- filter(economics, 
+                       between(date, as.Date(&quot;1970-01-01&quot;), 
+                               as.Date(&quot;1980-01-01&quot;)))
+
+ggplot(data_to_plot, aes(x = date, y = pop)) + 
+  geom_line() </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>We can neaten this up a little by using the <em>lubridate</em> package and adding tickmarks for every year.</p>
+<pre class="r"><code>library(lubridate)
+
+data_to_plot &lt;- filter(economics, 
+                       between(date, make_date(1970), 
+                               make_date(1980)))
+
+ggplot(data_to_plot, aes(x = date, y = pop)) + 
+  geom_line() +
+  scale_x_date(date_breaks = &quot;1 year&quot;, date_labels = &quot;%Y&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>This is where we can start from. The next step is to make the change I need to in the plots. By default <em>ggplot2</em> puts a tickmark at the start of the year and this could be misinterpreted, due to the single tickmark, as the middle of the year. With this particular graph it might be unlikely as the data starts directly on the first tickmark but a small change could make this possible misinterpretation more likely.</p>
+<pre class="r"><code>data_to_plot &lt;- filter(economics, 
+                       between(date, make_date(1969, 9), 
+                               make_date(1980)))
+
+ggplot(data_to_plot, aes(x = date, y = pop)) + 
+  geom_line() +
+  scale_x_date(date_breaks = &quot;1 year&quot;, date_labels = &quot;%Y&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The change I made was to move the labels of the tickmarks so that they sit between the tickmarks themselves - essentially putting them in line with the minor tickmarks, rather than the major tickmarks. There are packages that allow the minor tickmarks to be labelled but I wanted to avoid using additional packages.</p>
+<p>One advantage that I had was that the plots produced are always a specific size and so I could use a <em>ggplot2</em> command to accomplish what I was looking for. A quick example would be</p>
+<pre class="r"><code>data_to_plot &lt;- filter(economics, 
+                       between(date, make_date(1970), 
+                               make_date(1980)))
+
+ggplot(data_to_plot,
+       aes(x = date, y = pop)) +
+  geom_line() +
+  scale_x_date(date_breaks = &quot;1 year&quot;, date_labels = &quot;%Y&quot;) + 
+  theme(axis.text.x = element_text(hjust = -0.55))</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>The final step is to tweak the number of labels by removing the final one. This also means that we can’t use the automatic labelling and it is easiest to add our own.</p>
+<pre class="r"><code>data_to_plot &lt;- filter(economics, 
+                       between(date, make_date(1970), 
+                               make_date(1980)))
+
+years_used &lt;- unique(year(data_to_plot$date))
+year_labels &lt;- c(years_used[-length(years_used)], &quot;&quot;)
+
+ggplot(data_to_plot,
+       aes(x = date, y = pop)) +
+  geom_line() +
+  scale_x_date(breaks = make_date(years_used), labels = year_labels) +
+  theme(axis.text.x = element_text(hjust = -0.55))</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>I was interested that this could be achieved really quite easily, without resorting to additional packages. However, I don’t think that this is the best method if the size of the plots was going to change or be dependent on user choice. I found that I needed to tweak the value given to <code>hjust =</code> to get it to look right. In my case this isn’t an issue because the images are exported to separate files.</p>

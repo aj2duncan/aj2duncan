@@ -6,7 +6,18 @@
     <description>Recent content in tmap on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tmap/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/tags/tmap/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Creating a Squared Grid Across Scotland</title>
+      <link>/blog/creating-a-squared-grid-across-scotland/</link>
+      <pubDate>Sun, 29 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/creating-a-squared-grid-across-scotland/</guid>
+      <description>Recently I have been using the sf and tmap packages a lot and I thought I would come back to finish a draft post I started a while ago.
+As part of a project a while ago, I needed to create a square grid across Scotland and produce centroids for each. We start by loading the packages we’ll need and the shapefile.
+library(sf)library(tmap)scot &amp;lt;- st_read(&amp;quot;scot_shapefile/scot.shp&amp;quot;)We can see what this looks like with a quick plot.</description>
+    </item>
+    
     <item>
       <title>Plotting Rurality in Scotland</title>
       <link>/blog/plotting-rurality-in-scotlands/</link>

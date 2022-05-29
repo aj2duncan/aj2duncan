@@ -11,8 +11,7 @@ description: 'Learning something new about tibbles and data frames'
 highlight: true
 ---
 
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I learned something new today and the reason I write this is that I’m somewhat confused as to how I didn’t know it already.</p>
@@ -108,25 +107,25 @@ temp2 = tibble(x = rnorm(100, 2, 0.5))</code></pre>
     Welch Two Sample t-test
 
 data:  temp$x and temp2$x
-t = -15.74, df = 138.5, p-value &lt; 2.2e-16
+t = -19.835, df = 148.02, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -2.140351 -1.662632
+ -2.419627 -1.981181
 sample estimates:
-mean of x mean of y 
-0.1300857 2.0315770 </code></pre>
+ mean of x  mean of y 
+-0.2254405  1.9749634 </code></pre>
 <p>but this throws an error.</p>
 <pre class="r"><code>t.test(temp[,1], temp2[,1])</code></pre>
 <pre><code>
     Welch Two Sample t-test
 
 data:  temp[, 1] and temp2[, 1]
-t = -15.74, df = 138.5, p-value &lt; 2.2e-16
+t = -19.835, df = 148.02, p-value &lt; 2.2e-16
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -2.140351 -1.662632
+ -2.419627 -1.981181
 sample estimates:
-mean of x mean of y 
-0.1300857 2.0315770 </code></pre>
+ mean of x  mean of y 
+-0.2254405  1.9749634 </code></pre>
 <p>Now I know about <code>[[]]</code> I will definitely being using it with <em>tibbles</em>.</p>
 </div>

@@ -11,8 +11,7 @@ description: ''
 highlight: true
 ---
 
-<link href="/rmarkdown-libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
-<script src="/rmarkdown-libs/anchor-sections/anchor-sections.js"></script>
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>Despite knowing that R markdown (through the amazing <a href="https://pandoc.org/" target="_blank">Pandoc</a>) can create Powerpoint presentations I haven’t used it until very recently. In doing so I thought I would write a quick demo and show what the default slides look like.</p>
@@ -24,7 +23,7 @@ output: powerpoint_presentation
 ---</code></pre>
 <p>which produces a pretty bland title page.</p>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide1.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide1.jfif" style="width:70.0%" /></p>
 </div>
 <p>New Slides are started with either a header 1 <code>#</code>, header 2 <code>##</code> or if you want a new slide without a header use a horizontal rule <code>---</code>. Standard markdown syntax can be used within slides and any footnotes you include will be automatically placed in a final slide entitled <strong>Notes</strong>.</p>
 <pre class="md"><code>
@@ -35,7 +34,7 @@ You can include **Knit** markdown as *normal*^[A footnote].
 Including links like [my website](https://aj2duncan.com).
 </code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide2.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide2.jfif" style="width:70.0%" /></p>
 </div>
 <p>Bullets can be added, either without numbering</p>
 <pre class="md"><code>## Slide with Bullets
@@ -44,7 +43,7 @@ Including links like [my website](https://aj2duncan.com).
 - Bullet 2
 - Bullet 3</code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide3.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide3.jfif" style="width:70.0%" /></p>
 </div>
 <p>or with</p>
 <pre class="md"><code>
@@ -54,7 +53,7 @@ Including links like [my website](https://aj2duncan.com).
 2. Bullet 2
 3. Bullet 3</code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide4.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide4.jfif" style="width:70.0%" /></p>
 </div>
 <p>We can include <code>R</code> as we would expect</p>
 <pre class="md"><code>
@@ -65,7 +64,7 @@ summary(cars)
 ```
 </code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide5.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide5.jfif" style="width:70.0%" /></p>
 </div>
 <p>The output can also be put in a table</p>
 <pre class="md"><code>## Slide with Table
@@ -75,7 +74,7 @@ knitr::kable(summary(cars), row.names = FALSE)
 ```
 </code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide6.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide6.jfif" style="width:70.0%" /></p>
 </div>
 <p>Likewise we can generate a plot</p>
 <pre class="md"><code>## Slide with Plot
@@ -84,7 +83,7 @@ knitr::kable(summary(cars), row.names = FALSE)
 plot(pressure)
 ```</code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide7.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide7.jfif" style="width:70.0%" /></p>
 </div>
 <p>You can use two columns but pandoc does not currently <a href="" target="_blank">see the issue here</a> support custom widths. However, it does seem possible depending on any template that you may be using.</p>
 <pre class="md"><code>## Two Columns
@@ -98,7 +97,7 @@ contents of the right column
 :::
 ::::::::::::::</code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide8.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide8.jfif" style="width:70.0%" /></p>
 </div>
 <p>Finally, you can also use LaTeX formatting for equations.</p>
 <pre class="md"><code>## Slide with Equation
@@ -108,7 +107,7 @@ $$
 $$
 </code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/Slide9.JPG" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/Slide9.jfif" style="width:70.0%" /></p>
 </div>
 <p>If you want to using a different template then just like with a word document you can provide a template file in the YAML header. I’ve tested this with a generic Powerpoint and the results can be seen in the gif below.</p>
 <pre><code>---
@@ -118,6 +117,6 @@ output:
     reference_doc: my_template.pptx
 ---</code></pre>
 <div class="container">
-<p><img src="/blog/2020-05-09-r-markdown-to-powerpoint_files/template.gif" style="width:70.0%" /></p>
+<p><img src="/images/r-markdown-powerpoint/template.gif" style="width:70.0%" /></p>
 </div>
 <p>This <a href="https://support.rstudio.com/hc/en-us/articles/360004672913-Rendering-PowerPoint-Presentations-with-RStudio" target="_blank">RStudio article</a> gives further details on templates and also how <a href="https://pandoc.org/" target="_blank">Pandoc</a> decides on how the headers/horizontal lines start new slides.</p>

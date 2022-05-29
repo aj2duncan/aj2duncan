@@ -1,8 +1,0 @@
-tab:main-table
-tab:margin-table
-tab:margin-table-2
-fig:longer-question
-fig:fig-margin2
-fig:fig-margin
-fig:fig-fullwidth
-fig:fig-main

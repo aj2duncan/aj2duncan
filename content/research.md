@@ -11,8 +11,8 @@ I am currently working with the [SRUC Epidemiology Research Unit](http://www.sru
 - [PURE](https://pure.uhi.ac.uk/en/persons/andrew-duncan)
 
 ### Published Articles
+- [Quantifying changes in the British cattle movement network](https://www.sciencedirect.com/science/article/abs/pii/S0167587721002683) or you can read the [preprint](https://arxiv.org/abs/2104.09270) 
 - [Porcine reproductive and respiratory syndrome virus seroprevalence in Scottish finishing pigs between 2006 and 2018](https://bvajournals.onlinelibrary.wiley.com/doi/pdf/10.1002/vetr.349)
-- *Quantifying changes in the British cattle movement network* [(link to preprint)](https://arxiv.org/abs/2104.09270)  and submitted for review. 
 - [When Textbook Answers are the Problem](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 19 and the entire journal should be available. 
 - [R Markdown in education](http://www.scottishmathematicalcouncil.org/wp1/smc-journal-47-2017/) the article is on page 72 and the entire journal should be available. If you are interested the [R Markdown](https://rmarkdown.rstudio.com/) file that I used to create the article is available from this [github repository](https://github.com/aj2duncan/Rmd_Ed_Paper).
 - [Blowfly strike in sheep: self-help surveillance for shepherds is unsustainable](http://veterinaryrecord.bmj.com/content/180/11/280.1.full). Or you can read the prepublished [version](http://openaccess.sruc.ac.uk/handle/11262/11171).
