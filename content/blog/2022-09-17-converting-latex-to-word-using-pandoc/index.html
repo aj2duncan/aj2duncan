@@ -1,0 +1,29 @@
+---
+title: Converting LaTeX to Word using pandoc
+author: ''
+date: '2022-09-17'
+slug: converting-latex-to-word-using-pandoc
+categories:
+  - R markdown
+tags:
+  - pandoc
+description: ''
+highlight: true
+---
+
+
+
+<p>A few weeks ago I needed to convert an academic paper written using <a href="https://en.wikibooks.org/wiki/LaTeX" target="_blank">LaTeX</a> into a Microsoft Word document. My preferred way of doing this would be to use <a href="https://pandoc.org/" target="_blank">pandoc</a>.</p>
+<p>In the past I have used <a href="https://pandoc.org/" target="_blank">pandoc</a> in the command line. On checking my (reasonably) new laptop, it appeared that I didn’t have access to it on the command line but I knew it had to be installed as part of the <a href="https://www.rstudio.com/" target="_blank">RStudio</a> install.</p>
+<p>This led me to check if there were any <code>pandoc()</code> functions within any of the packages and I found that, as I suspected, there are a bunch of them, mostly in the <a href="https://rmarkdown.rstudio.com/docs/index.html" target="_blank">rmarkdown package</a>. To demo, we can use it to check with <code>pandoc</code> is installed</p>
+<pre class="r"><code>library(rmarkdown)
+pandoc_available()</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p>and check which version is available.</p>
+<pre class="r"><code>pandoc_version()</code></pre>
+<pre><code>[1] &#39;2.18&#39;</code></pre>
+<p>Now that we’re happy we can access pandoc, we can use <code>pandoc_convert()</code> to do the actual conversion. My LaTeX document also used a <a href="https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management" target="_blank">BibTeX</a> file and so the conversion could be a little more complicated. The command line syntax is explained nicely <a href="https://waterprogramming.wordpress.com/2018/08/26/converting-latex-to-ms-word-docx-almost-perfectly/" target="_blank">here</a> and we can implement it in <code>R</code> even more easily as we don’t actually need to specify the BibTeX file (it is picked up from the LaTeX file).</p>
+<pre class="r"><code>pandoc_convert(input = &quot;my_paper.tex&quot;, 
+               output = &quot;my_paper_converted.docx&quot;, 
+               citeproc = TRUE)</code></pre>
+<p>In my case, the conversion worked really well and I will be trying this in the future to allow quick conversions between LaTeX (my preferred option for writing papers) to help with collaboration.</p>

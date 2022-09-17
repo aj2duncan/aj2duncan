@@ -3,13 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/converting-latex-to-word-using-pandoc/</loc>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/pandoc/</loc>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/r-markdown/</loc>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/creating-a-squared-grid-across-scotland/</loc>
     <lastmod>2022-05-29T00:00:00+00:00</lastmod>
@@ -21,9 +33,6 @@
     <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/sf/</loc>
-    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/tmap/</loc>
@@ -60,9 +69,6 @@
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/r-markdown/</loc>
-    <lastmod>2020-05-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/r-markdown/</loc>
     <lastmod>2020-05-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/r-markdown-to-powerpoint/</loc>

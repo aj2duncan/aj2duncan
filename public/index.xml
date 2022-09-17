@@ -6,7 +6,17 @@
     <description>Recent content on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Converting LaTeX to Word using pandoc</title>
+      <link>/blog/converting-latex-to-word-using-pandoc/</link>
+      <pubDate>Sat, 17 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/converting-latex-to-word-using-pandoc/</guid>
+      <description>A few weeks ago I needed to convert an academic paper written using LaTeX into a Microsoft Word document. My preferred way of doing this would be to use pandoc.
+In the past I have used pandoc in the command line. On checking my (reasonably) new laptop, it appeared that I didn’t have access to it on the command line but I knew it had to be installed as part of the RStudio install.</description>
+    </item>
+    
     <item>
       <title>Creating a Squared Grid Across Scotland</title>
       <link>/blog/creating-a-squared-grid-across-scotland/</link>
