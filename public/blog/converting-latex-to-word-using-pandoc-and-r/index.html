@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="My personal webpage built through Hugo and blogdown.">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>Converting LaTeX to Word using pandoc and R</title>
+    <meta name="generator" content="Hugo 0.92.1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <link rel="stylesheet" href="../../css/custom_leaflet.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../blog/">BLOG</a></li>
+        
+        <li><a href="../../research/">RESEARCH</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../blog/converting-latex-to-word-using-pandoc-and-r/">Converting LaTeX to Word using pandoc and R</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          September 17, 2022
+            &nbsp;&nbsp;
+            
+            <span class="label label-tag">pandoc</span>
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+
+<p>A few weeks ago I needed to convert an academic paper written using <a href="https://en.wikibooks.org/wiki/LaTeX" target="_blank">LaTeX</a> into a Microsoft Word document. My preferred way of doing this would be to use <a href="https://pandoc.org/" target="_blank">pandoc</a>.</p>
+<p>In the past I have used <a href="https://pandoc.org/" target="_blank">pandoc</a> in the command line. On checking my (reasonably) new laptop, it appeared that I didn’t have access to it on the command line but I knew it had to be installed as part of the <a href="https://www.rstudio.com/" target="_blank">RStudio</a> install.</p>
+<p>This led me to check if there were any <code>pandoc()</code> functions within any of the packages and I found that, as I suspected, there are a bunch of them, mostly in the <a href="https://rmarkdown.rstudio.com/docs/index.html" target="_blank">rmarkdown package</a>. To demo, we can use it to check with <code>pandoc</code> is installed</p>
+<pre class="r"><code>library(rmarkdown)
+pandoc_available()</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p>and check which version is available.</p>
+<pre class="r"><code>pandoc_version()</code></pre>
+<pre><code>[1] &#39;3.1.1&#39;</code></pre>
+<p>Now that we’re happy we can access pandoc, we can use <code>pandoc_convert()</code> to do the actual conversion. My LaTeX document also used a <a href="https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management" target="_blank">BibTeX</a> file and so the conversion could be a little more complicated. The command line syntax is explained nicely <a href="https://waterprogramming.wordpress.com/2018/08/26/converting-latex-to-ms-word-docx-almost-perfectly/" target="_blank">here</a> and we can implement it in <code>R</code> even more easily as we don’t actually need to specify the BibTeX file (it is picked up from the LaTeX file).</p>
+<pre class="r"><code>pandoc_convert(input = &quot;my_paper.tex&quot;, 
+               output = &quot;my_paper_converted.docx&quot;, 
+               citeproc = TRUE)</code></pre>
+<p>In my case, the conversion worked really well and I will be trying this in the future to allow quick conversions between LaTeX (my preferred option for writing papers) to help with collaboration.</p>
+
+            
+            </div>
+          </div>
+          <hr>
+       
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://github.com/rstudio/blogdown" target = "_blank">Blogdown</a>, <a href="https://gohugo.io/" target = "_blank">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/" target = "_blank">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+    
+  </body>
+</html>

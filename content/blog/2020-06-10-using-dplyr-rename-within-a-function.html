@@ -12,7 +12,6 @@ description: ''
 highlight: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>Today I rewrote some old code and came across something that I thought I would write down because I’m pretty sure I’ll forget it if I don’t! The issue was passing strings to the <code>rename()</code> function from the <a href="https://dplyr.tidyverse.org/" target="&#39;_blank">dplyr</a> package to rename a column. This came about because of a change in a older<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a> version of dplyr which had functions specifically for use inside your own functions. These had an underscore as a postfix. So instead of using <code>rename()</code> I was using <code>rename_()</code>. There are now depreciated and so I was updating my code.</p>
@@ -24,14 +23,14 @@ temp &lt;- tribble(
   3, 4
 )
 temp</code></pre>
-<pre><code># A tibble: 2 x 2
+<pre><code># A tibble: 2 × 2
       x     y
   &lt;dbl&gt; &lt;dbl&gt;
 1     1     2
 2     3     4</code></pre>
 <p>Now we’ve got some data we can <code>rename()</code> a column.</p>
 <pre class="r"><code>rename(temp, x2 = x)</code></pre>
-<pre><code># A tibble: 2 x 2
+<pre><code># A tibble: 2 × 2
      x2     y
   &lt;dbl&gt; &lt;dbl&gt;
 1     1     2
@@ -42,13 +41,13 @@ temp</code></pre>
 }</code></pre>
 <p>We can try using this with a string and without.</p>
 <pre class="r"><code>my_rename(temp, &quot;x2&quot;)</code></pre>
-<pre><code># A tibble: 2 x 2
+<pre><code># A tibble: 2 × 2
   new_name     y
      &lt;dbl&gt; &lt;dbl&gt;
 1        1     2
 2        3     4</code></pre>
 <pre class="r"><code>my_rename(temp, x2)</code></pre>
-<pre><code># A tibble: 2 x 2
+<pre><code># A tibble: 2 × 2
   new_name     y
      &lt;dbl&gt; &lt;dbl&gt;
 1        1     2
@@ -58,19 +57,19 @@ temp</code></pre>
   rename(dat_f, {{new_name}} := x)
 }
 my_rename(temp, &quot;x2&quot;)</code></pre>
-<pre><code># A tibble: 2 x 2
+<pre><code># A tibble: 2 × 2
      x2     y
   &lt;dbl&gt; &lt;dbl&gt;
 1     1     2
 2     3     4</code></pre>
 <pre class="r"><code>my_rename(temp, x3)</code></pre>
-<pre><code># A tibble: 2 x 2
+<pre><code># A tibble: 2 × 2
      x3     y
   &lt;dbl&gt; &lt;dbl&gt;
 1     1     2
 2     3     4</code></pre>
 <p>In a future post I plan to do a run through (mainly for myself when I forget things) a few things like this including <em>quosures</em>.</p>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p>much older<a href="#fnref1" class="footnote-back">↩︎</a></p></li>

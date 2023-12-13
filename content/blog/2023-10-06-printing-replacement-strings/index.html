@@ -1,0 +1,27 @@
+---
+title: Printing Replacement Strings
+author: ''
+date: '2023-10-06'
+slug: printing-replacement-strings
+categories:
+  - R
+tags: []
+description: ''
+highlight: true
+---
+
+
+
+<p>This is a very quick post because I discovered something that I’m pretty sure I’ll need to remember.</p>
+<p>I needed to use a percentage sign (%) in a quarto report that was being rendered into LaTeX. As you probably know, <code>%</code> is a LaTeX comment and so we need escape it. We would normally do this by using <code>\%</code>. This meant that I needed to do something like.</p>
+<pre class="r"><code>gsub(&quot;%&quot;, &quot;\%&quot;, &quot;Percentage (%)&quot;)</code></pre>
+<pre><code>Error: &#39;\%&#39; is an unrecognized escape in character string (&lt;text&gt;:1:13)</code></pre>
+<p>Except that as you can see this doesn’t work. This is due to <code>\</code> being a special character. We need to escape it too, with the general rule of for every <code>\</code> you want to appear use four or <code>\\\\</code>.</p>
+<pre class="r"><code>gsub(&quot;%&quot;, &quot;\\\\%&quot;, &quot;Percentage (%)&quot;)</code></pre>
+<pre><code>[1] &quot;Percentage (\\%)&quot;</code></pre>
+<p>This looks like it hasn’t worked, except that <code>print()</code> isn’t showing us quite what is going on because it adds the escape characters. We can see what is actually happening using <code>cat()</code>.</p>
+<pre class="r"><code>cat(gsub(&quot;%&quot;, &quot;\\\\%&quot;, &quot;Percentage (%)&quot;))</code></pre>
+<pre><code>Percentage (\%)</code></pre>
+<p>An alternative is to add <code>fixed = TRUE</code>, which just matches the pattern as is. <em>Note:</em> The <code>print()</code> difficulty above, which I was originally using for testing, still holds.</p>
+<pre class="r"><code>cat(gsub(&quot;%&quot;, &quot;\\%&quot;, &quot;Percentage (%)&quot;, fixed = TRUE))</code></pre>
+<pre><code>Percentage (\%)</code></pre>

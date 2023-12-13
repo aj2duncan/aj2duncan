@@ -5,12 +5,31 @@ layout: page
 
 ### Current Research
 
-I am currently working with the [SRUC Epidemiology Research Unit](http://www.sruc.ac.uk/info/120249/epidemiology_research_unit) and across several research groups at Inverness College UHI. At the SRUC I mainly work on network analysis of animal movements, automating disease reporting and building online applications. I also do a little bit of website design and work a lot with the statistical software [R](http://cran.r-project.org/). For full details please see the [software](https://aj2duncan.com/software/) page.
+I work with the [SRUC Centre for Epidemiology and Planetary Health (CEPH)](https://pure.sruc.ac.uk/en/organisations/centre-for-epidemiology-and-planetary-health-ceph-2) and across several research groups at UHI Inverness. At CEPH I work on various data science related projects but focus on network analysis of animal movements. I am also responsible for building a range of shiny applications, ranging from the [Epidemiology Resource Centre](https://epidemiology.sruc.ac.uk) to internal applications that automate reporting (both interactive and static) for industry stakeholders. Full publication lists can be found on my ORCID and PURE profiles. 
 
-- [Orcid Profile](https://orcid.org/0000-0002-7314-9629)
+- [ORCID Profile](https://orcid.org/0000-0002-7314-9629)
 - [PURE](https://pure.uhi.ac.uk/en/persons/andrew-duncan)
 
-### Published Articles
+### Shiny Applications
+
+Aside from internal Shiny apps I have built several Shiny servers. Two run off RStudio's open source [Shiny server](https://www.rstudio.com/products/shiny/download-server/), whilst the other uses the alternative [Shinyproxy](https://www.shinyproxy.io) hosting model - with docker containers to host the individual applications. 
+
+The two publicly available shiny servers are:
+
+- The [Online Epidemiology resource centre](http://epidemiology.sruc.ac.uk) which I built as part of my work with [CEPH](https://pure.sruc.ac.uk/en/organisations/centre-for-epidemiology-and-planetary-health-ceph-2). It hosts a number of online models and calculators, all available publicly.  
+- My own [shiny server](https://shiny.aj2duncan.com/) to use for any apps I develop for teaching or just for my own interest.
+
+### Package Development
+
+Whilst I have developed several packages for teaching and internal use, I have also built the [satpoint](https://decide-project-eu.github.io/satpoint/) package to extract data from netCDF files and I have forked a version of [thesisdown](https://github.com/ismayc/thesisdown) specifically for the UHI - [thesisdownrli](https://aj2duncan.github.io/thesisdownrli/).  
+
+### Publications
+
+The links below should take you to a selection of publications (articles/chapters) that I've been a part of. For a full list of peer-reviewed journal articles, please see my [PURE](https://pure.uhi.ac.uk/en/persons/andrew-duncan) profile.
+
+- [Evaluations of the Disease Surveillance Centre Network in Scotland: What parts has it reached?](https://doi.org/10.3389/fvets.2023.1099057)
+- [Seeing the data for the trees: Assessing the data maturity and readiness of a UK forestry company](https://doi.org/10.1002/bse.3483)
+- [Targeted Design for a Specialist Working Population: How livestock veterinary surgeons inform the design of web-based interventions that support coping.](https://www.routledge.com/Designing-Interventions-to-Address-Complex-Societal-Issues/Morton/p/book/9781032205441) in *Designing Interventions to Address Complex Societal Issues*
 - [Quantifying changes in the British cattle movement network](https://www.sciencedirect.com/science/article/abs/pii/S0167587721002683) or you can read the [preprint](https://arxiv.org/abs/2104.09270) 
 - [Porcine reproductive and respiratory syndrome virus seroprevalence in Scottish finishing pigs between 2006 and 2018](https://bvajournals.onlinelibrary.wiley.com/doi/pdf/10.1002/vetr.349)
 - [When Textbook Answers are the Problem](http://www.scottishmathematicalcouncil.org/wp1/smc-publications/journals/) the article is on page 19 and the entire journal should be available. 

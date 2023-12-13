@@ -1,0 +1,66 @@
+---
+title: Shiny for Python
+author: ''
+date: '2023-07-18'
+slug: shiny-for-python
+categories:
+  - Shiny
+tags:
+  - Python
+description: ''
+highlight: true
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+```
+
+I have been building [Shiny](https://shiny.posit.co/) apps in `R` for what seems like a long time. Recently, I've been dabbling with [Shiny for Python](https://shiny.posit.co/py/) and for one particular reason. With [Shinylive](https://shiny.posit.co/py/docs/shinylive.html) these apps can be hosted without the need for a dedicated server - they just run in the web browser. For me this opens up two interesting possibilities. Firstly, it should mean I can embed an app in this blog (more on this below) and secondly, I can create apps for others and they won't need to use a Shiny server (or similar) setup to run them. 
+
+To experiment with embedding an app in a blog post I created a small [Shiny for Python](https://shiny.posit.co/py/) app using the [plotnine](https://plotnine.readthedocs.io/en/v0.12.3/) plotting package. I use [ggplot2](https://ggplot2.tidyverse.org/) for the vast majority of plotting in R and so I wanted to experiment with a similar result in python. 
+
+This app just has a quick filter in the number of diamonds to plot and renders them as quick barplot. 
+
+```{python, eval = FALSE}
+from shiny import App, render, ui
+from plotnine import ggplot, geom_bar, aes
+from plotnine.data import diamonds
+
+app_ui = ui.page_fluid(
+    ui.h2("Quick Diamonds Example"),
+    ui.input_slider("n", "Number of diamonds", 10000, 20000, 1000),
+    ui.output_plot("diamonds_plot")
+)
+
+
+def server(input, output, session):
+    @output
+    @render.plot
+    def diamonds_plot():
+        p = (ggplot(diamonds.sample(n = input.n()),
+                   aes(x = "cut", fill = "cut")) 
+            + geom_bar())
+        return p
+
+
+app = App(app_ui, server)
+```
+
+Having written and tested the app (in my case inventively caused *diamonds*), we can build it (presuming everything required has been installed) via
+
+```{python, eval = FALSE}
+shinylive export diamonds site
+```
+
+This creates a folder called *site* containing all the bits and pieces we need. Finally, we can embed this in our blog via
+
+```{r, out.width = "100%"}
+knitr::include_app("site/index.html", height = "600px")
+```
+
+## Final Thoughts
+
+I think this is going to be a really useful tool for me. I'm pretty sure most of my apps will be written in `R` but this should allow publishing small (relatively simple) apps much easier. 
+
+

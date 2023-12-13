@@ -12,7 +12,6 @@ highlight: true
 description: ''
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I was playing around with extracting data from <code>ggplot</code> graphs, which I have done <a href="https://aj2duncan.com/blog/more-info-on-ggplots/">previously</a> using <code>ggplot2_build()</code>. This time it was getting some of the modelling results that are plotted using <code>geom_smooth()</code>. Take the quick example below.</p>
@@ -35,17 +34,17 @@ p</code></pre>
 8  5.860759  9.677561  -2.6717841 22.02691 6.129986       FALSE     1    -1
 9  6.126582 10.302454  -1.3616644 21.96657 5.789853       FALSE     1    -1
 10 6.392405 10.947940  -0.1259761 22.02186 5.496887       FALSE     1    -1
-    colour   fill size linetype weight alpha
-1  #3366FF grey60    1        1      1   0.4
-2  #3366FF grey60    1        1      1   0.4
-3  #3366FF grey60    1        1      1   0.4
-4  #3366FF grey60    1        1      1   0.4
-5  #3366FF grey60    1        1      1   0.4
-6  #3366FF grey60    1        1      1   0.4
-7  #3366FF grey60    1        1      1   0.4
-8  #3366FF grey60    1        1      1   0.4
-9  #3366FF grey60    1        1      1   0.4
-10 #3366FF grey60    1        1      1   0.4</code></pre>
+    colour   fill linewidth linetype weight alpha
+1  #3366FF grey60         1        1      1   0.4
+2  #3366FF grey60         1        1      1   0.4
+3  #3366FF grey60         1        1      1   0.4
+4  #3366FF grey60         1        1      1   0.4
+5  #3366FF grey60         1        1      1   0.4
+6  #3366FF grey60         1        1      1   0.4
+7  #3366FF grey60         1        1      1   0.4
+8  #3366FF grey60         1        1      1   0.4
+9  #3366FF grey60         1        1      1   0.4
+10 #3366FF grey60         1        1      1   0.4</code></pre>
 <p>The <code>y</code> values are the results from the <strong>loess</strong> model. So far, so good but I wanted to check if these values were the same as the results from direct calculation. Using base <code>R</code> functions give us the following by default.</p>
 <pre class="r"><code>loess_results = predict(loess(dist~speed,cars), cars$speed)
 head(loess_results)</code></pre>

@@ -1,0 +1,166 @@
+---
+title: A Discussion on Pipes
+author: ''
+date: '2023-05-31'
+slug: a-discussion-on-pipes
+categories:
+  - R
+tags:
+  - dplyr
+description: ''
+highlight: true
+---
+
+
+
+<p>I’m a little late to the party on this but I thought that I would add a post about it because it is something that relates to my teaching and I was slightly surprised by the conclusion I ended up coming to. The topic is piping and the strengths and weaknesses of the <code>magrittr</code> pipe <code>%&gt;%</code> versus the (relatively) new base pipe <code>|&gt;</code>.</p>
+<p>The background to this post is that I was making a general move towards switching from <code>%&gt;%</code> to <code>|&gt;</code>. That is, when I started writing some brand new code in a brand new RStudio project (and git repo), I changed to using <code>|&gt;</code>. Some of this new code generated a weird error and on fixing it I ended up doing a deeper dive into the base pipe and that led to this post.</p>
+<p>Before I get too much further I would just add that I am a big fan of the pipe and piped operations. In my opinion it generates far more readable code than base <code>R</code> (prior to the pipe). I personally use it all the time and introduce it to my students as soon as I think is reasonably sensible.</p>
+<p>Anyway, onto the discussion and the secondary reason for the post - to give me something to refer back to when I forget the specifics. I’ve used the magrittr pipe <code>%&gt;%</code> for ages and the example below (from the old version of the <code>map()</code> help page) is a good example of where I might use it.</p>
+<pre class="r"><code>library(tidyverse)
+
+mtcars %&gt;% 
+  split(.$cyl) %&gt;%
+  map(~ lm(mpg ~ wt, data = .x)) %&gt;%
+  map(summary) %&gt;%
+  map_dbl(&quot;r.squared&quot;)</code></pre>
+<pre><code>        4         6         8 
+0.5086326 0.4645102 0.4229655 </code></pre>
+<p>On digging into the base pipe, which I was using as part of <code>map()</code> call, I used <code>?map</code> and got the updated version of the above code.</p>
+<pre class="r"><code>mtcars |&gt;
+  group_split(mtcars$cyl) |&gt;
+  map(\(df) lm(mpg ~ wt, data = df)) |&gt;
+  map(summary) |&gt;
+  map_dbl(&quot;r.squared&quot;)</code></pre>
+<pre><code>[1] 0.5086326 0.4645102 0.4229655</code></pre>
+<p>These two pieces of code look reasonably similar but you’ll notice the lack of <code>.</code> notation in the second. This led me reading about <code>|&gt;</code> and the differences. In turn I found this excellent <a href="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/">blog post</a> that provided better examples than I found in other documentation. For me the crux of the differences between <code>|&gt;</code> and <code>%&gt;%</code> are that:</p>
+<ul>
+<li>the base pipe only ever passes the left-hand side of the pipe into the first argument of the right-hand side;</li>
+<li>and (because of this) we can no longer use the <code>.</code> notation.</li>
+</ul>
+<p>The anonymous function defined above as <code>\(df) lm(mpg ~ wt, data = df))</code> is way around the issue with <code>.</code> notation. For the most part, the first point above (LHS into RHS) is rarely going to be an issue, particularly with <code>dplyr</code> functions. For example:</p>
+<pre class="r"><code>mtcars %&gt;%
+  group_by(cyl) %&gt;%
+  summarise(av_mpg = mean(mpg))</code></pre>
+<pre><code># A tibble: 3 × 2
+    cyl av_mpg
+  &lt;dbl&gt;  &lt;dbl&gt;
+1     4   26.7
+2     6   19.7
+3     8   15.1</code></pre>
+<p>is exactly the same as</p>
+<pre class="r"><code>mtcars |&gt;
+  group_by(cyl) |&gt;
+  summarise(av_mpg = mean(mpg))</code></pre>
+<pre><code># A tibble: 3 × 2
+    cyl av_mpg
+  &lt;dbl&gt;  &lt;dbl&gt;
+1     4   26.7
+2     6   19.7
+3     8   15.1</code></pre>
+<p>The problem for me, and the reason that I don’t think I’ll be switching to use <code>|&gt;</code> in the near future is the <code>.</code> notation for when we don’t want to pipe into the first argument. I quite often find myself piping into a function where the data isn’t the first argument. To provide an example, let’s create a small dataset.</p>
+<pre class="r"><code>ex_df &lt;- tibble(
+  grp1 = rnorm(100, mean = 10, sd = 5), 
+  grp2 = rnorm(100, mean = 20, sd = 5)
+)
+head(ex_df)</code></pre>
+<pre><code># A tibble: 6 × 2
+   grp1  grp2
+  &lt;dbl&gt; &lt;dbl&gt;
+1  1.63 14.3 
+2  5.09  8.97
+3 24.2  19.6 
+4  4.13 31.0 
+5 10.2  27.0 
+6  7.96 32.1 </code></pre>
+<p>Suppose we wanted to perform a t-test. We have a number of choices</p>
+<pre class="r"><code>t.test(ex_df$grp1, ex_df$grp2)</code></pre>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  ex_df$grp1 and ex_df$grp2
+t = -13.731, df = 197.69, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -11.784637  -8.824786
+sample estimates:
+mean of x mean of y 
+ 9.962203 20.266915 </code></pre>
+<p>Alternatively we might want to change the data to long format, maybe add a cleaning step (which isn’t needed for this example) and run the test using the formula notation.</p>
+<pre class="r"><code>ex_df %&gt;%
+  pivot_longer(everything(), names_to = &quot;group&quot;, values_to = &quot;value&quot;) %&gt;%
+  # additional cleaning step ... %&gt;%
+  t.test(value ~ group, data = .)</code></pre>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  value by group
+t = -13.731, df = 197.69, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group grp1 and group grp2 is not equal to 0
+95 percent confidence interval:
+ -11.784637  -8.824786
+sample estimates:
+mean in group grp1 mean in group grp2 
+          9.962203          20.266915 </code></pre>
+<p>Now if we try that with <code>|&gt;</code> we know in advance that it won’t work but I’m doing it here to generate the error</p>
+<pre class="r"><code>ex_df |&gt;
+  pivot_longer(everything(), names_to = &quot;group&quot;, values_to = &quot;value&quot;) |&gt;
+  # additional cleaning step ... |&gt;
+  t.test(value ~ group, data = .)</code></pre>
+<pre><code>Error in `vec_c()`:
+! Can&#39;t combine `group` &lt;character&gt; and `value` &lt;double&gt;.</code></pre>
+<p>We can get around this if we really want, with an anonymous function.</p>
+<pre class="r"><code>ex_df |&gt;
+  pivot_longer(everything(), names_to = &quot;group&quot;, values_to = &quot;value&quot;) |&gt;
+  (\(df) t.test(value ~ group, data = df))()</code></pre>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  value by group
+t = -13.731, df = 197.69, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means between group grp1 and group grp2 is not equal to 0
+95 percent confidence interval:
+ -11.784637  -8.824786
+sample estimates:
+mean in group grp1 mean in group grp2 
+          9.962203          20.266915 </code></pre>
+<p>I quite like the notation of the anonymous functions but I’m not going to go into detail on them here because others have already provided excellent explanations. The <a href="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/">blog post</a> I linked above is one of them and I encourage you to read that too.</p>
+<p>The conclusion I came to after this little bit of reading was that I’ll stick to the magrittr pipe <code>%&gt;%</code>, as i think the notation it leads to (include the <code>.</code> notation) is easier to read. The exception to this would be if I was writing a package. In that case I do try to limit the dependencies and it might be worthwhile using <code>|&gt;</code> and anonymous functions.</p>
+<div id="other-pipes" class="section level2">
+<h2>Other Pipes</h2>
+<p>As part of the reading I did, I also revisited the other pipes available from the <code>magrittr</code> package and it was really good reminder of what the options were. The ones I think I’ll end up using the most are the assignment pipe <code>%&lt;&gt;%</code> and what I’ll probably end up column the <em>column</em> pipe (the exposition pipe) <code>%$%</code>.</p>
+<p>The <code>%$%</code> provides an alternative to the above <code>t.test()</code> notation as it allows us to access the columns directly.</p>
+<pre class="r"><code>library(magrittr)
+ex_df %$% 
+  t.test(grp1, grp2)</code></pre>
+<pre><code>
+	Welch Two Sample t-test
+
+data:  grp1 and grp2
+t = -13.731, df = 197.69, p-value &lt; 2.2e-16
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -11.784637  -8.824786
+sample estimates:
+mean of x mean of y 
+ 9.962203 20.266915 </code></pre>
+<p>The assignment pipe saves me some typing for things I do a lot by replacing</p>
+<pre class="r"><code>ex_df &lt;- ex_df %&gt;%
+   pivot_longer(everything(), names_to = &quot;group&quot;, values_to = &quot;value&quot;)</code></pre>
+<p>with</p>
+<pre class="r"><code>ex_df %&lt;&gt;% pivot_longer(everything(), names_to = &quot;group&quot;, values_to = &quot;value&quot;)
+head(ex_df)</code></pre>
+<pre><code># A tibble: 6 × 2
+  group value
+  &lt;chr&gt; &lt;dbl&gt;
+1 grp1   1.63
+2 grp2  14.3 
+3 grp1   5.09
+4 grp2   8.97
+5 grp1  24.2 
+6 grp2  19.6 </code></pre>
+</div>
+<div id="final-thoughts" class="section level2">
+<h2>Final Thoughts</h2>
+<p>If you are reading this and haven’t already, then I would really encourage you to read the <a href="https://ivelasq.rbind.io/blog/understanding-the-r-pipe/">blog post</a>. I’m a big fan of the pipe and will continue to use it but for my personal work, I think I’ll stick with the <code>magrittr</code> pipe rather than switch to the base pipe.</p>
+</div>

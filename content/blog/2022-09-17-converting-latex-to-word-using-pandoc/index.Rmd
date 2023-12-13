@@ -1,8 +1,8 @@
 ---
-title: Converting LaTeX to Word using pandoc
+title: Converting LaTeX to Word using pandoc and R
 author: ''
 date: '2022-09-17'
-slug: converting-latex-to-word-using-pandoc
+slug: converting-latex-to-word-using-pandoc-and-R
 categories:
   - R markdown
 tags:

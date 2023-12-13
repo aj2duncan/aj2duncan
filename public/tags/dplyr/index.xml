@@ -6,7 +6,17 @@
     <description>Recent content in dplyr on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Discussion on Pipes</title>
+      <link>/blog/a-discussion-on-pipes/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/a-discussion-on-pipes/</guid>
+      <description>I’m a little late to the party on this but I thought that I would add a post about it because it is something that relates to my teaching and I was slightly surprised by the conclusion I ended up coming to. The topic is piping and the strengths and weaknesses of the magrittr pipe %&amp;gt;% versus the (relatively) new base pipe |&amp;gt;.
+The background to this post is that I was making a general move towards switching from %&amp;gt;% to |&amp;gt;.</description>
+    </item>
+    
     <item>
       <title>Using `dplyr::rename()` within a function</title>
       <link>/blog/using-dplyr-rename-within-a-function/</link>

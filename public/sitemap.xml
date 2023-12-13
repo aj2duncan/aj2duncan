@@ -3,15 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/categories/</loc>
-    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/blog/converting-latex-to-word-using-pandoc/</loc>
+    <loc>/blog/printing-replacement-strings/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/r/</loc>
+    <lastmod>2023-10-06T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/python/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/shiny/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/shiny-for-python/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2023-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/a-discussion-on-pipes/</loc>
+    <lastmod>2023-05-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/dplyr/</loc>
+    <lastmod>2023-05-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/converting-latex-to-word-using-pandoc-and-r/</loc>
     <lastmod>2022-09-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/pandoc/</loc>
@@ -20,16 +44,10 @@
     <loc>/categories/r-markdown/</loc>
     <lastmod>2022-09-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-09-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/blog/creating-a-squared-grid-across-scotland/</loc>
     <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/leaflet/</loc>
-    <lastmod>2022-05-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/r/</loc>
     <lastmod>2022-05-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/sf/</loc>
@@ -59,9 +77,6 @@
     <loc>/blog/postcode-polygons-on-a-leaflet-map-updated/</loc>
     <lastmod>2020-11-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/dplyr/</loc>
-    <lastmod>2020-06-10T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/tags/tibble/</loc>
     <lastmod>2020-06-10T00:00:00+00:00</lastmod>
   </url><url>
@@ -84,9 +99,6 @@
     <lastmod>2020-02-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</loc>
-    <lastmod>2019-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/shiny/</loc>
     <lastmod>2019-11-06T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/things-i-keep-needing-to-look-up/</loc>
@@ -270,7 +282,5 @@
     <lastmod>2010-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/research/</loc>
-  </url><url>
-    <loc>/software/</loc>
   </url>
 </urlset>

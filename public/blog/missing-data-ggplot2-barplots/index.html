@@ -44,8 +44,6 @@
         
         <li><a href="../../research/">RESEARCH</a></li>
         
-        <li><a href="../../software/">SOFTWARE</a></li>
-        
       
       </ul>
     </div>
@@ -74,7 +72,6 @@
           <div class="panel-body">
             <div class="blogpost">
               
-<script src="../../rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>I’m wrting this down because it’s a problem I’ve tried to deal with twice in the last couple of weeks and I had to look the solution up both times. The second time, rather than just fix it I dug a little deeper to find out why something I thought would work didn’t.</p>
@@ -112,12 +109,12 @@ ggplot_build(p)$data</code></pre>
 3 #F8766D 1     1    1 1.775       FALSE     1     3    0    1 1.55 2.00     NA
 4 #00BFC4 2     2    1 2.225       FALSE     1     4    0    2 2.00 2.45     NA
 5 #F8766D 1     1    1 3.000       FALSE     1     5    0    1 2.55 3.45     NA
-  size linetype alpha
-1  0.5        1    NA
-2  0.5        1    NA
-3  0.5        1    NA
-4  0.5        1    NA
-5  0.5        1    NA</code></pre>
+  linewidth linetype alpha
+1       0.5        1    NA
+2       0.5        1    NA
+3       0.5        1    NA
+4       0.5        1    NA
+5       0.5        1    NA</code></pre>
 <p>The data only has 5 rows and so there isn’t any data to stop <code>ggplot</code> from dropping. It is necessary to count the data first.</p>
 <pre class="r"><code># starting again
 library(tidyverse)
@@ -140,7 +137,7 @@ fake_data &lt;- data.frame(var1 = c(&quot;a&quot;, &quot;a&quot;, &quot;a&quot;,
 ggplot(fake_data, aes(x = var1, fill = var2)) +
   geom_bar(position = position_dodge(preserve = &#39;single&#39;))</code></pre>
 <p><img src="../../blog/2017-09-20-ggplot2-barplots-missing-data_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
-<div class="footnotes">
+<div class="footnotes footnotes-end-of-document">
 <hr />
 <ol>
 <li id="fn1"><p><a href="https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data" class="uri">https://stackoverflow.com/questions/11020437/consistent-width-for-geom-bar-in-the-event-of-missing-data</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>

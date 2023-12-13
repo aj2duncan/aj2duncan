@@ -6,13 +6,43 @@
     <description>Recent content on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Converting LaTeX to Word using pandoc</title>
-      <link>/blog/converting-latex-to-word-using-pandoc/</link>
+      <title>Printing Replacement Strings</title>
+      <link>/blog/printing-replacement-strings/</link>
+      <pubDate>Fri, 06 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/printing-replacement-strings/</guid>
+      <description>This is a very quick post because I discovered something that I’m pretty sure I’ll need to remember.
+I needed to use a percentage sign (%) in a quarto report that was being rendered into LaTeX. As you probably know, % is a LaTeX comment and so we need escape it. We would normally do this by using \%. This meant that I needed to do something like.
+gsub(&amp;quot;%&amp;quot;, &amp;quot;\%&amp;quot;, &amp;quot;Percentage (%)&amp;quot;)Error: &amp;#39;\%&amp;#39; is an unrecognized escape in character string (&amp;lt;text&amp;gt;:1:13)Except that as you can see this doesn’t work.</description>
+    </item>
+    
+    <item>
+      <title>Shiny for Python</title>
+      <link>/blog/shiny-for-python/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/shiny-for-python/</guid>
+      <description>I have been building Shiny apps in R for what seems like a long time. Recently, I’ve been dabbling with Shiny for Python and for one particular reason. With Shinylive these apps can be hosted without the need for a dedicated server - they just run in the web browser. For me this opens up two interesting possibilities. Firstly, it should mean I can embed an app in this blog (more on this below) and secondly, I can create apps for others and they won’t need to use a Shiny server (or similar) setup to run them.</description>
+    </item>
+    
+    <item>
+      <title>A Discussion on Pipes</title>
+      <link>/blog/a-discussion-on-pipes/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/a-discussion-on-pipes/</guid>
+      <description>I’m a little late to the party on this but I thought that I would add a post about it because it is something that relates to my teaching and I was slightly surprised by the conclusion I ended up coming to. The topic is piping and the strengths and weaknesses of the magrittr pipe %&amp;gt;% versus the (relatively) new base pipe |&amp;gt;.
+The background to this post is that I was making a general move towards switching from %&amp;gt;% to |&amp;gt;.</description>
+    </item>
+    
+    <item>
+      <title>Converting LaTeX to Word using pandoc and R</title>
+      <link>/blog/converting-latex-to-word-using-pandoc-and-r/</link>
       <pubDate>Sat, 17 Sep 2022 00:00:00 +0000</pubDate>
       
-      <guid>/blog/converting-latex-to-word-using-pandoc/</guid>
+      <guid>/blog/converting-latex-to-word-using-pandoc-and-r/</guid>
       <description>A few weeks ago I needed to convert an academic paper written using LaTeX into a Microsoft Word document. My preferred way of doing this would be to use pandoc.
 In the past I have used pandoc in the command line. On checking my (reasonably) new laptop, it appeared that I didn’t have access to it on the command line but I knew it had to be installed as part of the RStudio install.</description>
     </item>
@@ -87,7 +117,7 @@ We’ll talk about customisation and the end but let’s start with the defaults
       <guid>/blog/extracting-columns-from-a-tibble/</guid>
       <description>This is both a follow up post to my earlier post tibbles, data frames and vectors and a query that came up at work.
 The central question was how can you extract a column from a tibble as part of a pipe. That might sound straight forward but let’s take a look.
-# load packages and create a tibble to work withlibrary(tibble)library(dplyr)test = tibble(id = c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;a&amp;quot;), val = c(1, 2, 3))test# A tibble: 3 x 2id val&amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;1 a 12 b 23 a 3Let’s run a quick filter() and then select() the values.</description>
+# load packages and create a tibble to work withlibrary(tibble)library(dplyr)test = tibble(id = c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;a&amp;quot;), val = c(1, 2, 3))test# A tibble: 3 × 2id val&amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;1 a 12 b 23 a 3Let’s run a quick filter() and then select() the values.</description>
     </item>
     
     <item>
@@ -132,7 +162,8 @@ git archive --format=tar --remote=git@url:user/repo.</description>
       <description>I learned something new today and the reason I write this is that I’m somewhat confused as to how I didn’t know it already.
 Data FramesLet us start by creating a data frame.
 temp = data.frame(x = c(1:3), y = c(10:12))temp x y1 1 102 2 113 3 12We can select rows
-temp[1,] x y1 1 10and columns</description>
+temp[1,] x y1 1 10and columns
+temp$x[1] 1 2 3temp[,2][1] 10 11 12What I hadn’t realised before is that there is another way to select columns, using [[ notation that I’m used to using with lists.</description>
     </item>
     
     <item>
@@ -661,18 +692,7 @@ I haven&#39;t met many people that like algebra and nearly all of them were teac
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/research/</guid>
-      <description>Current Research I am currently working with the SRUC Epidemiology Research Unit and across several research groups at Inverness College UHI. At the SRUC I mainly work on network analysis of animal movements, automating disease reporting and building online applications. I also do a little bit of website design and work a lot with the statistical software R. For full details please see the software page.
- Orcid Profile PURE  Published Articles  Quantifying changes in the British cattle movement network or you can read the preprint Porcine reproductive and respiratory syndrome virus seroprevalence in Scottish finishing pigs between 2006 and 2018 When Textbook Answers are the Problem the article is on page 19 and the entire journal should be available.</description>
-    </item>
-    
-    <item>
-      <title>Software</title>
-      <link>/software/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/software/</guid>
-      <description>I spend most of my time programming in R. This includes teaching and research. Teaching with R includes an Introduction to R course, a level 6 Statistics and a third year degree module. For my research I spend a large amount of time cleaning, organising and analysing data. Recently I have also been building Shiny apps either as online resources and to automate reporting.
-Shiny Aside from internal Shiny apps I have built two Shiny servers.</description>
+      <description>Current Research I work with the SRUC Centre for Epidemiology and Planetary Health (CEPH) and across several research groups at UHI Inverness. At CEPH I work on various data science related projects but focus on network analysis of animal movements. I am also responsible for building a range of shiny applications, ranging from the Epidemiology Resource Centre to internal applications that automate reporting (both interactive and static) for industry stakeholders. Full publication lists can be found on my ORCID and PURE profiles.</description>
     </item>
     
   </channel>

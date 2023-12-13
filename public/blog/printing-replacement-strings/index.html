@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="map[]" />
+    <meta name="description" content="My personal webpage built through Hugo and blogdown.">
+    <link rel="shortcut icon" type="image/x-icon" href="../../img/favicon.ico">
+    <title>Printing Replacement Strings</title>
+    <meta name="generator" content="Hugo 0.92.1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href='https://fonts.googleapis.com/css?family=Indie+Flower|Alegreya|Alegreya+Sans' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css" /><link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old" />
+    
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <link rel="stylesheet" href="../../css/custom_leaflet.css">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+    
+  </head>
+
+  <body>
+    <div id="wrap">
+
+      
+      <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../../"><i class="fa fa-home"></i></a>
+    </div>
+    <div id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+        <li><a href="../../blog/">BLOG</a></li>
+        
+        <li><a href="../../research/">RESEARCH</a></li>
+        
+      
+      </ul>
+    </div>
+  </div>
+</nav>
+
+      
+      <div class="container">
+        <div class="blog-post">
+          <h3>
+            <strong><a href="../../blog/printing-replacement-strings/">Printing Replacement Strings</a></strong>
+          </h3>
+        </div>
+        <div class="blog-title">
+          <h4>
+          October 6, 2023
+            &nbsp;&nbsp;
+            
+          </h4>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="blogpost">
+              
+
+
+<p>This is a very quick post because I discovered something that I’m pretty sure I’ll need to remember.</p>
+<p>I needed to use a percentage sign (%) in a quarto report that was being rendered into LaTeX. As you probably know, <code>%</code> is a LaTeX comment and so we need escape it. We would normally do this by using <code>\%</code>. This meant that I needed to do something like.</p>
+<pre class="r"><code>gsub(&quot;%&quot;, &quot;\%&quot;, &quot;Percentage (%)&quot;)</code></pre>
+<pre><code>Error: &#39;\%&#39; is an unrecognized escape in character string (&lt;text&gt;:1:13)</code></pre>
+<p>Except that as you can see this doesn’t work. This is due to <code>\</code> being a special character. We need to escape it too, with the general rule of for every <code>\</code> you want to appear use four or <code>\\\\</code>.</p>
+<pre class="r"><code>gsub(&quot;%&quot;, &quot;\\\\%&quot;, &quot;Percentage (%)&quot;)</code></pre>
+<pre><code>[1] &quot;Percentage (\\%)&quot;</code></pre>
+<p>This looks like it hasn’t worked, except that <code>print()</code> isn’t showing us quite what is going on because it adds the escape characters. We can see what is actually happening using <code>cat()</code>.</p>
+<pre class="r"><code>cat(gsub(&quot;%&quot;, &quot;\\\\%&quot;, &quot;Percentage (%)&quot;))</code></pre>
+<pre><code>Percentage (\%)</code></pre>
+<p>An alternative is to add <code>fixed = TRUE</code>, which just matches the pattern as is. <em>Note:</em> The <code>print()</code> difficulty above, which I was originally using for testing, still holds.</p>
+<pre class="r"><code>cat(gsub(&quot;%&quot;, &quot;\\%&quot;, &quot;Percentage (%)&quot;, fixed = TRUE))</code></pre>
+<pre><code>Percentage (\%)</code></pre>
+
+            
+            </div>
+          </div>
+          <hr>
+       
+        </div>
+      </div>
+      
+    </div>
+
+    
+    <footer>
+  <div id="footer">
+    <div class="container">
+      <p class="text-muted">&copy; All rights reserved. Powered by <a href="https://github.com/rstudio/blogdown" target = "_blank">Blogdown</a>, <a href="https://gohugo.io/" target = "_blank">Hugo</a> and
+      <a href="http://www.github.com/nurlansu/hugo-sustain/" target = "_blank">sustain</a> with ♥</p>
+    </div>
+  </div>
+</footer>
+<div class="footer"></div>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    });
+    </script>
+    <script type="text/javascript"
+      src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="../../js/docs.min.js"></script>
+<script src="../../js/main.js"></script>
+
+<script src="../../js/ie10-viewport-bug-workaround.js"></script><!-- Syntax highlighting -->
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+<script src="//cdn.bootcss.com/highlight.js/9.12.0/languages/r.min.js"></script>
+<script>
+hljs.configure({languages: []});
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+    
+  </body>
+</html>

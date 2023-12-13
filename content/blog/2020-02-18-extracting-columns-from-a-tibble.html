@@ -11,7 +11,6 @@ description: ''
 highlight: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>This is both a follow up post to my earlier post <a href="https://www.aj2duncan.com/blog/tibbles-dataframes-and-vectors/">tibbles, data frames and vectors</a> and a query that came up at work.</p>
@@ -21,7 +20,7 @@ library(tibble)
 library(dplyr)
 test = tibble(id = c(&quot;a&quot;, &quot;b&quot;, &quot;a&quot;), val = c(1, 2, 3))
 test</code></pre>
-<pre><code># A tibble: 3 x 2
+<pre><code># A tibble: 3 × 2
   id      val
   &lt;chr&gt; &lt;dbl&gt;
 1 a         1
@@ -31,7 +30,7 @@ test</code></pre>
 <pre class="r"><code>test %&gt;%
   filter(id == &quot;a&quot;) %&gt;%
   select(val)</code></pre>
-<pre><code># A tibble: 2 x 1
+<pre><code># A tibble: 2 × 1
     val
   &lt;dbl&gt;
 1     1

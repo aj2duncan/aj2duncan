@@ -1,0 +1,45 @@
+---
+title: Printing Replacement Strings
+author: ''
+date: '2023-10-06'
+slug: printing-replacement-strings
+categories:
+  - R
+tags: []
+description: ''
+highlight: true
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = TRUE, comment = NA, 
+                      warning = FALSE, message = FALSE)
+```
+
+This is a very quick post because I discovered something that I'm pretty sure I'll need to remember. 
+
+I needed to use a percentage sign (%) in a quarto report that was being rendered into LaTeX. As you probably know, `%` is a LaTeX comment and so we need escape it. We would normally do this by using `\%`. This meant that I needed to do something like. 
+
+```{r, error = TRUE}
+gsub("%", "\%", "Percentage (%)")
+```
+
+Except that as you can see this doesn't work. This is due to `\` being a special character. We need to escape it too, with the general rule of for every `\` you want to appear use four or `\\\\`. 
+
+```{r}
+gsub("%", "\\\\%", "Percentage (%)")
+```
+
+This looks like it hasn't worked, except that `print()` isn't showing us quite what is going on because it adds the escape characters. We can see what is actually happening using `cat()`. 
+
+```{r}
+cat(gsub("%", "\\\\%", "Percentage (%)"))
+```
+
+An alternative is to add `fixed = TRUE`, which just matches the pattern as is. *Note:* The `print()` difficulty above, which I was originally using for testing, still holds. 
+
+```{r}
+cat(gsub("%", "\\%", "Percentage (%)", fixed = TRUE))
+```
+
+
+

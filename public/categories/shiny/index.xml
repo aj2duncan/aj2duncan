@@ -6,7 +6,16 @@
     <description>Recent content in Shiny on aj2duncan.com</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shiny for Python</title>
+      <link>/blog/shiny-for-python/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/shiny-for-python/</guid>
+      <description>I have been building Shiny apps in R for what seems like a long time. Recently, I’ve been dabbling with Shiny for Python and for one particular reason. With Shinylive these apps can be hosted without the need for a dedicated server - they just run in the web browser. For me this opens up two interesting possibilities. Firstly, it should mean I can embed an app in this blog (more on this below) and secondly, I can create apps for others and they won’t need to use a Shiny server (or similar) setup to run them.</description>
+    </item>
+    
     <item>
       <title>Leaflet Draw, Exporting Polygons and the Holepunch Package</title>
       <link>/blog/leaflet-draw-exporting-shapefiles-and-the-holepunch-package/</link>

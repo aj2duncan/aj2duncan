@@ -83,7 +83,7 @@ pandoc_available()</code></pre>
 <pre><code>[1] TRUE</code></pre>
 <p>and check which version is available.</p>
 <pre class="r"><code>pandoc_version()</code></pre>
-<pre><code>[1] &#39;2.18&#39;</code></pre>
+<pre><code>[1] &#39;3.1.1&#39;</code></pre>
 <p>Now that we’re happy we can access pandoc, we can use <code>pandoc_convert()</code> to do the actual conversion. My LaTeX document also used a <a href="https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management" target="_blank">BibTeX</a> file and so the conversion could be a little more complicated. The command line syntax is explained nicely <a href="https://waterprogramming.wordpress.com/2018/08/26/converting-latex-to-ms-word-docx-almost-perfectly/" target="_blank">here</a> and we can implement it in <code>R</code> even more easily as we don’t actually need to specify the BibTeX file (it is picked up from the LaTeX file).</p>
 <pre class="r"><code>pandoc_convert(input = &quot;my_paper.tex&quot;, 
                output = &quot;my_paper_converted.docx&quot;, 

@@ -15,9 +15,6 @@ math = "true"
     name = "Research"
     url = "/research/"
 [[menu.main]]
-    name = "Software"
-    url = "/software/"
-[[menu.main]]
     name = "Blog"
     url = "/blog/"
 
@@ -34,7 +31,6 @@ math = "true"
 
 [params.social]
   github        = "aj2duncan"
-  twitter       = "aj2duncan"
 
 [markup]
   [markup.goldmark]
